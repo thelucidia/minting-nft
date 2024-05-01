@@ -1,8 +1,42 @@
-import React, { useState } from 'react';
-import MainVideo from '../../../../videos/curseof.mp4';
+import { useEffect, useState } from 'react';
+// import clsx from 'clsx';
 
-const Banner: React.FC = () => {
+interface IData {
+  landing: {
+    image: string;
+    title: string;
+    desc: string;
+    buttons: boolean;
+  };
+  'our-products': {
+    image: string;
+    title: string;
+    desc: string;
+    buttons: boolean;
+  };
+  [key: string]: {
+    image: string;
+    title: string;
+    desc: string;
+    buttons: boolean;
+  };
+}
+const data: IData = {
+  landing: {
+    image: '/hero/hero.svg',
+    title: 'Pioneering Web3 Gaming in the Middle East',
+    desc: 'Introducing the first comprehensive web3 gaming ecosystem in the Middle East',
+    buttons: true,
+  },
+  'our-products': {
+    image: '/coins.webp',
+    title: 'Welcome to lucidia`s ecosystem',
+    desc: 'Explore our suite of innovative products designed for the vibrant Middle Eastern gaming community. From unique marketplaces to advanced NFT tools, Lucidia is your gateway to the future of gaming.',
+    buttons: false,
+  },
+};
 
+export function Hero () {
   const [trueLoading, setTrueLoading] = useState(true);
 
   const handleTrue = () => {
@@ -11,8 +45,12 @@ const Banner: React.FC = () => {
     }, 1500);
   };
 
+  useEffect(() => {
+    handleTrue();
+  }, []);
+
   return (
-    <section className="w-full min-h-screen relative text-white overflow-hidden bg-bg px-44">
+    <section className="w-full min-h-screen p-5 relative text-white flex md:items-center justify-center">
       <div
         className={`w-full h-screen bg-black fixed z-30 top-0 left-0 flex flex-col items-center justify-center  transition-all ease-in-out duration-300 ${trueLoading ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} `}
       >
@@ -21,64 +59,46 @@ const Banner: React.FC = () => {
           <h1 className="font-primary font-semibold text-2xl mt-10 tracking-widest">LOADING</h1>
         </div>
       </div>
-      <video
-        autoPlay
-        muted
-        loop
-        src={MainVideo}
-        preload={'auto'}
-        onLoadedData={handleTrue}
-        playsInline
+      <img
+        src="../hero/back.jpeg"
+        alt="Herobg"
         className="w-full h-screen object-cover absolute top-0 left-0"
       />
-      <img
-        src="/hero/back.jpeg"
-        alt="game_background"
-        className="w-full h-screen object-cover absolute left-0"
-      />
-      <div className="w-full h-screen absolute top-0 left-0 bg-custom-gradient z-10"></div>
-      <div className="container mx-auto mt-[150px] flex flex-col gap-y-[180px]">
-        <div className="flex flex-row gap-x-[90px]">
-          <div className="z-20">
-            <h1 className="uppercasexl:text-[59px] lg:text-[52px] md:text-[42px] sm:text-[32px] text-[26px] text-white font-primary uppercase font-bold">
-              PARTICIPATE ON <br/>
-              THE EXCLUSIVE NFT DROP
-            </h1>
-            <h4 className="md:text-[75px] text-white text-secondary font-primary font-semibold uppercase">
-              Curse of the pharaoh
-            </h4>
-          </div>
-        </div>
-      </div>
-      <div className="container w-full h-auto mx-auto relative z-10 flex mt-[5rem] md:mt-[4rem] flex-col-reverse md:flex-row relative">
+
+      <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-b from-prpl/50 to-black z-10"></div>
+
+      <div className="container w-full h-auto mx-auto relative z-10 flex mt-[7rem] md:mt-[10rem] flex-col-reverse md:flex-row relative">
         <div className="w-full flex flex-col gap-y-[10px]">
-          <div className="flex gap-16">
-            <div className="mt-7">
-              <div className="flex items-center">
-                <div>
-                  <div className="flex items-center justify-center py-4 font-clash-grotesk font-bold leading-custom-39 text-left box-border w-16 h-18 left-0 top-0 border-t border-b border-gray-200 rounded-lg mx-2">00</div>
-                  <div className="flex justify-center ml-2 font-clash-grotesk font-bold leading-custom-39 text-left box-border w-16 h-18">Hour</div>
-                </div>
-                <div className="font-bold">:</div>
-                <div>
-                  <div className="flex items-center justify-center py-4 font-clash-grotesk font-bold leading-custom-39 text-left box-border w-16 h-18 left-0 top-0 border-t border-b border-gray-200 rounded-lg mx-2">00</div>
-                  <div className="flex justify-center ml-2 font-clash-grotesk font-bold leading-custom-39 text-left box-border w-16 h-18">Minute</div>
-                </div>
-                <div className="font-bold">:</div>
-                <div>
-                  <div className="flex items-center justify-center py-4 font-clash-grotesk font-bold leading-custom-39 text-left box-border w-16 h-18 left-0 top-0 border-t border-b border-gray-200 rounded-lg mx-2">00</div>
-                  <div className="flex justify-center ml-2 font-clash-grotesk font-bold leading-custom-39 text-left box-border w-16 h-18">Second</div>
-                </div>
+          <img
+            src="../hero/text1.png"
+            alt="Herotext"
+            className="flex object-cover text-image mb-4"
+          />
+          <img
+            src="../hero/text2.png"
+            alt="Herotext"
+            className="flex object-cover text-image mb-12"
+          />
+          <div className="flex gap-16 mb-12">
+            <div className="flex items-center time">
+              <div className="flex items-center time-num">
+                <div >00</div>:
+                <div >00</div>:
+                <div >00</div>
+              </div>
+              <div className="flex items-center time-label">
+                <div>Hour</div>
+                <div>Minute</div>
+                <div>Second</div>
               </div>
             </div>
-            <div className="line" />
-            <div className="airdrop">
-              <div className="font-clash-grotesk font-bold leading-custom-39 text-left box-border w-16 h-18 mr-1">AIRDROP</div>
-              <div className="font-clash-grotesk font-bold leading-custom-39 text-left box-border w-16 h-18 mr-1"><span className="text-sky-400/100">$20,000</span><span>&nbsp;WORTH</span></div>
-              <div className="font-clash-grotesk font-bold leading-custom-39 text-left box-border w-16 h-18 mr-1"> OF&nbsp;NFT&nbsp;IN&nbsp;TOTAL</div>
+            <div className="flex line" />
+            <div className="flex airdrop">
+              <div className="airdrop-title">AIRDROP</div>
+              <div className="airdrop-content"><span>$20,000</span> WORTH OF NFT IN TOTAL</div>
             </div>
           </div>
-          <div className="flex gap-x-3 mt-[30px] md:flex-row flex-col gap-y-10">
+          <div className="flex gap-x-3 mt-[80px] md:flex-row flex-col gap-y-10">
             <a href="" target="_blank" rel="noopener noreferrer" className="">
               <button className=" w-full md:w-[28rem] h-12 clipped2 bg-transparent relative  font-bold flex items-center justify-center scale-y-[-1] group">
                 <div className="absolute bg-transparent left-0 top-0 right-0 bottom-0 m-auto group-hover:bg-white transition-bg ease-in-out duration-300">
@@ -110,4 +130,5 @@ const Banner: React.FC = () => {
     </section>
   );
 };
-export default Banner;
+
+export default Hero;
