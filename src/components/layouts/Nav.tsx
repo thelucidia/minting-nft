@@ -202,9 +202,10 @@ const Nav: React.FC = () => {
       window.removeEventListener('resize', updateDimension);
     };
   }, [screenSize]);
-  console.log("window: ", window.location);
+
   const [subdomain] = window.location.hostname.split('.');
   const isApp = subdomain === 'app';
+  
   return (
     <>
       <nav
