@@ -5,6 +5,8 @@ import Video from "../views/home/Video";
 import Benefits from "../views/home/Benefits";
 import Airdrop from "../views/home/Airdrop";
 
+import mainBackground from "/hero/back.jpeg";
+
 const Landing: React.FC = () => {
   return (
     <motion.div
@@ -15,7 +17,7 @@ const Landing: React.FC = () => {
       className="bg-black"
     >
       <section className="w-full h-auto overflow-hidden bg-bg">
-        <Banner />
+        <Banner mainBackground={mainBackground}/>
         <Video />
         <Benefits />
         <Airdrop />

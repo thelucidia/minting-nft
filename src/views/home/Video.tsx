@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-export function Video() {
+const Video = () => {
 
   const [trueLoading, setTrueLoading] = useState(true);
 

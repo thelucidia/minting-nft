@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-export function Tokens() {
+const Tokens = () => {
   return (
     <div className="flex w-auto bg-[url('/hero/stat_back.png')] bg-cover bg-no-repeat">
       <section className="container mx-auto py-40 px-48">

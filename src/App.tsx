@@ -5,11 +5,13 @@ const Nav = lazy(() => import('./components/layouts/Nav'));
 const Footer = lazy(() => import('./components/layouts/Footer'));
 
 import Landing from './pages/Landing';
+import CreateId from "./pages/CreateId";
 
 export const BaseRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
+      <Route path="/create-id" element={<CreateId />} />
 
       {/* <Route path="/about" >
         <Route index element={<About />} />
@@ -25,11 +27,14 @@ export const BaseRoutes = () => {
 
 const App: React.FC = () => {
 
+  const pathname = window.location.pathname;
+  const isFooter = pathname === "/";
+
   return (
     <section className="w-full h-full overflow-hidden bg-bg mx-auto">
       <Nav />
         <BaseRoutes />
-      <Footer />
+      {isFooter? <Footer /> : <></>}
     </section>
   );
 };

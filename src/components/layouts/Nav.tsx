@@ -202,6 +202,7 @@ const Nav: React.FC = () => {
       window.removeEventListener('resize', updateDimension);
     };
   }, [screenSize]);
+  console.log("window: ", window.location);
   const [subdomain] = window.location.hostname.split('.');
   const isApp = subdomain === 'app';
   return (
@@ -467,7 +468,7 @@ const Nav: React.FC = () => {
             >
               <div className="w-full lg:w-[15rem] relative lg:block hidden">
                 <div className="hover:text-white py-[13px] w-[237px] absolute font-secondary text-[14px] uppercase leading-normal font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-[#9586FF] to-[#0ED4FF] transition-colors ease-in-out duration-300">
-                  {`${!isApp ? 'Launch App' : 'Login Passport'}`}
+                  {`${!isApp ? 'Connect Wallet' : 'Login Passport'}`}
                 </div>
                 <img src="/assets/launch_app.svg" alt="LaunchApp" />
               </div>

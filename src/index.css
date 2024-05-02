@@ -223,3 +223,17 @@ body {
   font-family: 'Bai Jamjuree';
   letter-spacing: 3px;
 }
+
+.custom-centering {
+  left: calc(50% - 582px / 2);
+  top: calc(50% - 453px / 2);
+}
+
+.create-id-back-blur {
+  /* Vector */
+  top: 105px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 8.62866px;
+}
