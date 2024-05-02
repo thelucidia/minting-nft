@@ -463,7 +463,8 @@ const Nav: React.FC = () => {
               </div>
             </div>
             <Link
-              to={!isApp ? `${Config.production ? Config.appHost : Config.appLocalHost}` : '/login'}
+              to="/create-id"
+              // to={!isApp ? `${Config.production ? Config.appHost : Config.appLocalHost}` : '/login'}
               target={!isApp ? `_blank` : ''}
             >
               <div className="w-full lg:w-[15rem] relative lg:block hidden">
