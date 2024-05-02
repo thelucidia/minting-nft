@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Banner from '../../views/Apps/Home/Banner';
-import Video from '../../views/Apps/Home/Video';
-import Token from "../../views/Apps/Home/Token";
-import AboutEvent from './Hero/AboutEvent';
+import Banner from "../views/home/Banner";
+import Video from "../views/home/Video";
+import Benefits from "../views/home/Benefits";
+import Airdrop from "../views/home/Airdrop";
 
-const AppHome: React.FC = () => {
+const Landing: React.FC = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -17,10 +17,10 @@ const AppHome: React.FC = () => {
       <section className="w-full h-auto overflow-hidden bg-bg">
         <Banner />
         <Video />
-        <Token />
-        <AboutEvent />
+        <Benefits />
+        <Airdrop />
       </section>
     </motion.div>
   );
 };
-export default AppHome;
+export default Landing;

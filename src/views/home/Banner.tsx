@@ -1,41 +1,6 @@
 import { useEffect, useState } from 'react';
 // import clsx from 'clsx';
 
-interface IData {
-  landing: {
-    image: string;
-    title: string;
-    desc: string;
-    buttons: boolean;
-  };
-  'our-products': {
-    image: string;
-    title: string;
-    desc: string;
-    buttons: boolean;
-  };
-  [key: string]: {
-    image: string;
-    title: string;
-    desc: string;
-    buttons: boolean;
-  };
-}
-const data: IData = {
-  landing: {
-    image: '/hero/hero.svg',
-    title: 'Pioneering Web3 Gaming in the Middle East',
-    desc: 'Introducing the first comprehensive web3 gaming ecosystem in the Middle East',
-    buttons: true,
-  },
-  'our-products': {
-    image: '/coins.webp',
-    title: 'Welcome to lucidia`s ecosystem',
-    desc: 'Explore our suite of innovative products designed for the vibrant Middle Eastern gaming community. From unique marketplaces to advanced NFT tools, Lucidia is your gateway to the future of gaming.',
-    buttons: false,
-  },
-};
-
 export function Hero () {
   const [trueLoading, setTrueLoading] = useState(true);
 
@@ -50,7 +15,7 @@ export function Hero () {
   }, []);
 
   return (
-    <section className="w-full min-h-screen p-5 relative text-white flex md:items-center justify-center">
+    <section className="w-full min-h-screen container mx-auto px-48 p-5 relative text-white flex md:items-center justify-center">
       <div
         className={`w-full h-screen bg-black fixed z-30 top-0 left-0 flex flex-col items-center justify-center  transition-all ease-in-out duration-300 ${trueLoading ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} `}
       >
@@ -72,14 +37,14 @@ export function Hero () {
           <img
             src="../hero/text1.png"
             alt="Herotext"
-            className="flex object-cover text-image mb-4"
+            className="flex object-cover text-image h-28 w-100"
           />
           <img
             src="../hero/text2.png"
             alt="Herotext"
-            className="flex object-cover text-image mb-12"
+            className="flex object-cover text-image mb-8 h-20 w-108"
           />
-          <div className="flex gap-16 mb-12">
+          <div className="flex gap-16 mb-0">
             <div className="flex items-center time">
               <div className="flex items-center time-num">
                 <div >00</div>:
@@ -98,7 +63,7 @@ export function Hero () {
               <div className="airdrop-content"><span>$20,000</span> WORTH OF NFT IN TOTAL</div>
             </div>
           </div>
-          <div className="flex gap-x-3 mt-[80px] md:flex-row flex-col gap-y-10">
+          <div className="flex gap-x-3 mt-[20px] md:flex-row flex-col gap-y-10">
             <a href="" target="_blank" rel="noopener noreferrer" className="">
               <button className=" w-full md:w-[28rem] h-12 clipped2 bg-transparent relative  font-bold flex items-center justify-center scale-y-[-1] group">
                 <div className="absolute bg-transparent left-0 top-0 right-0 bottom-0 m-auto group-hover:bg-white transition-bg ease-in-out duration-300">

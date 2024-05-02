@@ -5,7 +5,7 @@ import { MdKeyboardArrowUp } from 'react-icons/md';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { clsx } from 'clsx';
-import Config from '../config';
+import Config from '../../config';
 
 const Nav: React.FC = () => {
   const navList = [

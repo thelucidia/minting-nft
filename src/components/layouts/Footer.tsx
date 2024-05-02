@@ -1,6 +1,40 @@
 import React from 'react';
+import { LiaTelegramPlane } from 'react-icons/lia';
+import { TfiTwitter } from 'react-icons/tfi';
+import { FaInstagram } from 'react-icons/fa';
+import { RxDiscordLogo } from 'react-icons/rx';
 
 const Footer: React.FC = () => {
+  const icons = [
+    {
+      link: 'https://t.me/Lucidia_io',
+      icon: <LiaTelegramPlane />,
+    },
+    {
+      link: 'https://discord.gg/lucidia',
+      icon: <RxDiscordLogo />,
+    },
+    {
+      link: 'https://twitter.com/lucidia_io',
+      icon: <TfiTwitter />,
+    },
+    // {
+    //   link: 'https://lucidia.io',
+    //   icon: <AiOutlineYoutube />,
+    // },
+    // {
+    //   link: 'https://www.reddit.com/r/LucidiaMetaverse/',
+    //   icon: <FaRedditAlien />,
+    // },
+    {
+      link: 'https://instagram.com/lucidia_official',
+      icon: <FaInstagram />,
+    },
+    // {
+    //   link: 'https://www.tiktok.com/@lucidia.io',
+    //   icon: <RiTiktokLine />,
+    // },
+  ];
 
   const general = [
     {
@@ -39,6 +73,23 @@ const Footer: React.FC = () => {
   return (
     <footer className="w-full h-auto min-h-screen relative pb-16">
       <div className="container mx-auto w-full text-white sm:mt-28 mt-10 px-5 text-left sm:text-center">
+        <div className="mt-10">
+          <p className="font-medium font-primary text-footergry text-[15px] sm:text-[22px] mt-2 sm:mt-0">
+            For more details about our progress and workflow be sure to follow
+          </p>
+        </div>
+
+        <ul className="flex w-fit sm:mx-auto mt-12 text-2xl sm:text-4xl sm:gap-x-7 gap-x-5">
+          {icons.map((items, i) => {
+            return (
+              <li className="hover:scale-[1.1] transition-all ease-in-out duration-300 hover:text-cyan " key={i}>
+                <a href={items.link} target="_blank" rel="noopener noreferrer" className="">
+                  {items.icon}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
       </div>
 
       <img
@@ -47,8 +98,8 @@ const Footer: React.FC = () => {
         className="sm:mt-20 mx-auto w-full object-cover relative left-0 right-0 opacity-70 sm:block hidden"
       />
 
-      <div className="container mx-auto w-full text-white sm:mt-28 grid lg:grid-cols-2 md:grid-cols-1 gap-x-28 gap-y-10 sm:border-t-0 border-t-[1.5px] mt-10 border-white/20">
-        <div className="font-primary flex gap-x-20 sm:flex-row flex-col gap-y-8 mt-11 lg:mt-0 sm:items-center items-start lg:order-first md:order-last order-last px-16">
+      <div className="container px-48 mx-auto w-full text-white sm:mt-28 grid lg:grid-cols-2 md:grid-cols-1 gap-x-28 gap-y-10 sm:border-t-0 border-t-[1.5px] mt-10 border-white/20">
+        <div className="font-primary flex gap-x-20 sm:flex-row flex-col gap-y-8 mt-11 lg:mt-0 sm:items-center items-start lg:order-first md:order-last order-last">
           <div className="">
             <h2 className="font-semibold text-[22px]">GENERAL</h2>
             <ul className="flex flex-col gap-y-2 mt-8">
@@ -149,7 +200,7 @@ const Footer: React.FC = () => {
       />
 
       <div className="container mx-auto w-full text-white sm:mt-16 flex justify-between items-center px-5 sm:border-t-0 border-t-[1.5px] mt-20 pt-12 sm:pt-0 border-white/20">
-        <div className="px-16">
+        <div className="">
           <h3 className="font-secondary text-sm font-semibold uppercase">© Lucidia 2024 | All rights reserved.</h3>
           <p className="text-[12px] text-footergry font-secondary mt-2">
             YOUR JURISDICTION MAY NOT REGULATE CRYPTOCURRENCIES. THE VALUE OF CRYPTOCURRENCIES MAY RISE AND FALL.
