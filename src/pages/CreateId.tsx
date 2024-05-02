@@ -1,65 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { sphereoneSDK } from '../config';
-import { useSDK } from '@metamask/sdk-react';
-import {
-  useConnect,
-  // useRequest
- } from '@walletconnect/modal-sign-react'
+import React from 'react';
  
 const Login: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  console.log(isLoggedIn);
-  const { sdk, connected } = useSDK();
-  const [fetched, setFetched] = useState(false);
-
-  const [session, setSession] = useState({});  
-  const [disabled, setDisabled] = useState(false);
-  console.log(session, disabled);
-  const { connect } = useConnect({
-    requiredNamespaces: {
-      eip155: {
-      methods: ['eth_sendTransaction', 'personal_sign'],
-      chains: ['eip155:1'],
-      events: ['chainChanged', 'accountsChanged']
-      }
-    }
-  });
-
-  useEffect(() => {
-    setFetched(true);
-    try {
-      const handleAuth = async () => {
-        const authResult: any = await sphereoneSDK.handleCallback();
-        if (authResult?.access_token) {
-          const { access_token, profile } = authResult;
-          console.log('access_token: ', access_token, 'profile: ', profile);
-          setIsLoggedIn(true);
-        } else {
-          setIsLoggedIn(false);
-        }
-      };
-      handleAuth();
-    } catch (e) {
-      console.log(e);
-    }
-  }, []);
-  useEffect(() => {
-    if (!fetched) {
-      return;
-    }
-    if (connected) {
-      window.location.href = `/`;
-    }
-  }, [connected]);
-
-  const login = async () => {
-    try {
-      await sphereoneSDK.login();
-    } catch (e: any) {
-      console.error(e);
-    }
-  };
 
   return (
     <section className="w-full h-screen text-white relative mb-[605px]">
