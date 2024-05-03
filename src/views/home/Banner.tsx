@@ -23,7 +23,7 @@ const Banner: React.FC<BannerProps> = ({mainBackground, isCenter}) => {
   }, []);
 
   return (
-    <section className="w-full z-10 relative min-h-screen mx-auto p-5 relative text-white flex md:items-center justify-center">
+    <section className="w-full z-10 relative min-h-screen mx-auto relative text-white flex md:items-center justify-center">
       <div
         className={`w-full h-screen bg-black fixed z-30 top-0 left-0 flex flex-col items-center justify-center  transition-all ease-in-out duration-300 ${trueLoading ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} `}
       >

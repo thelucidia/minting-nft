@@ -11,7 +11,7 @@ const Slogan: React.FC<SloganProps> = ({isCenter = false}) => {
 
     return (
         <>
-            <div className="container z-0 w-full h-auto mx-auto absolute z-10 flex mt-[7rem] md:mt-[10rem] md:flex-row">
+            <div className="container z-0 h-auto mx-auto absolute z-10 flex mt-[7rem] md:mt-[10rem]">
                 <div className={centerClasses}>
                     <div className="flex flex-col gap-y-[10px]">
                         <img
