@@ -1,40 +1,6 @@
 import React from 'react';
-import { LiaTelegramPlane } from 'react-icons/lia';
-import { TfiTwitter } from 'react-icons/tfi';
-import { FaInstagram } from 'react-icons/fa';
-import { RxDiscordLogo } from 'react-icons/rx';
 
 const Footer: React.FC = () => {
-  const icons = [
-    {
-      link: 'https://t.me/Lucidia_io',
-      icon: <LiaTelegramPlane />,
-    },
-    {
-      link: 'https://discord.gg/lucidia',
-      icon: <RxDiscordLogo />,
-    },
-    {
-      link: 'https://twitter.com/lucidia_io',
-      icon: <TfiTwitter />,
-    },
-    // {
-    //   link: 'https://lucidia.io',
-    //   icon: <AiOutlineYoutube />,
-    // },
-    // {
-    //   link: 'https://www.reddit.com/r/LucidiaMetaverse/',
-    //   icon: <FaRedditAlien />,
-    // },
-    {
-      link: 'https://instagram.com/lucidia_official',
-      icon: <FaInstagram />,
-    },
-    // {
-    //   link: 'https://www.tiktok.com/@lucidia.io',
-    //   icon: <RiTiktokLine />,
-    // },
-  ];
 
   const general = [
     {
