@@ -4,12 +4,7 @@ import Slogan from "../../components/elements/Slogan";
 
 // import clsx from 'clsx';
 
-interface BannerProps {
-  mainBackground: string;
-  isCenter?: boolean;
-}
-
-const Banner: React.FC<BannerProps> = ({mainBackground, isCenter}) => {
+const Banner: React.FC = () => {
   const [trueLoading, setTrueLoading] = useState(true);
 
   const handleTrue = () => {
@@ -23,7 +18,7 @@ const Banner: React.FC<BannerProps> = ({mainBackground, isCenter}) => {
   }, []);
 
   return (
-    <section className="w-full z-10 relative min-h-screen mx-auto relative text-white flex md:items-center justify-center">
+    <section className="w-full z-10 relative min-h-screen mx-autorelative text-white flex md:items-center justify-center">
       <div
         className={`w-full h-screen bg-black fixed z-30 top-0 left-0 flex flex-col items-center justify-center  transition-all ease-in-out duration-300 ${trueLoading ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} `}
       >
@@ -33,13 +28,20 @@ const Banner: React.FC<BannerProps> = ({mainBackground, isCenter}) => {
         </div>
       </div>
       <img
-        src={mainBackground}
-        alt="Herobg"
-        className="w-full h-screen object-cover absolute top-0 left-0"
+        src="/hero/Ellipse 22.png"
+        alt="Ellipse1"
+        height="718px"
+        width="718px"
+        className="absolute top-[-275px] left-[19px]"
       />
-
-      <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-b from-prpl/50 to-black z-10"></div>
-      <Slogan isCenter={isCenter} />
+      <img
+        src="/hero/Ellipse 22.png"
+        alt="Ellipse2"
+        height="529px"
+        width="529px"
+        className="absolute bottom-[-300px] right-[-150px]"
+      />
+      <Slogan />
     </section>
   );
 };

@@ -468,11 +468,16 @@ const Nav: React.FC = () => {
               // to={!isApp ? `${Config.production ? Config.appHost : Config.appLocalHost}` : '/login'}
               target={!isApp ? `_blank` : ''}
             >
-              <div className="w-full lg:w-[15rem] relative lg:block hidden">
+              {/* <div className="w-full lg:w-[15rem] relative lg:block hidden">
                 <div className="hover:text-white py-[13px] w-[237px] absolute font-secondary text-[14px] uppercase leading-normal font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-[#9586FF] to-[#0ED4FF] transition-colors ease-in-out duration-300">
                   {`${!isApp ? 'Connect Wallet' : 'Login Passport'}`}
                 </div>
                 <img src="/assets/launch_app.svg" alt="LaunchApp" />
+              </div> */}
+              <div className="input-box">
+                <div className="uppercase leading-normal font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-[#9586FF] to-[#0ED4FF] transition-colors ease-in-out duration-300">
+                  Login Passport
+                </div>
               </div>
             </Link>
           </div>

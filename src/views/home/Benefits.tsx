@@ -1,6 +1,18 @@
+import React from "react";
 import clsx from "clsx";
 
-const Tokens = () => {
+import Benefit from "../../components/elements/Benefit";
+
+const benefitList = [
+  'Token airdrop whitelist for NFT holders',
+  'Early access to Lucidia features.',
+  '"Early Supporter" Discord badge.',
+  'Exclusive direct chat with Lucidia developers on Discord.',
+  '50% discount on first Lucidia t-short.',
+  'Exclusive early access to Lucidia DAO platform.'
+];
+
+const Benefits: React.FC = () => {
   return (
     <div className="flex w-auto bg-[url('/hero/stat_back.png')] bg-cover bg-no-repeat">
       <section className="container mx-auto py-40 px-12">
@@ -9,21 +21,16 @@ const Tokens = () => {
             Benefits You Can Enjoy From Lucidia Passport
           </h1>
         </div>
-        <div>
-          <img  
-            src="../hero/blog1.png"
-            alt="Blogbg"
-            className="flex object-cover text-image py-16"
-          />
-          <img
-            src="../hero/blog2.png"
-            alt="Blogbg"
-            className="flex object-cover text-image"
-          />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-10                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          md:gap-20">
+          {
+            benefitList.map((item, id) => (
+              <Benefit prefix={id + 1} content={item} key={"item-" + id} />
+            ))
+          }
         </div>
       </section>
     </div>
   );
 }
 
-export default Tokens;
+export default Benefits;

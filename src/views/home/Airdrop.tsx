@@ -1,14 +1,25 @@
-export function AboutEvent() {
+import React from "react";
+import Button from "../../components/elements/Button";
+
+const Airdrop: React.FC = () => {
+
+  const airdropList: string[] = ["Connect your wallet", "Join with our community", "Complete assessment", "Receive your rewards"];
+
     return (
-      <section className="container flex flex-col items-left x-full px-40 py-20 min-w-full bg-[url('/hero/about.png')] bg-contain bg-no-repeat">
-        <p className="text-white font-semibold font-tertiary text-[18px]">
-          E A S Y &nbsp; S T E P
-        </p>
-        <h1 className="text-white font-semibold font-secondary text-[48px] uppercase mb-32">
-          HOW TO GET THE AIRDROP
-        </h1>
+      <section className="mt-[140px]">
+        <div className="text-center">
+          <h6 className="font-bold text-primary uppercase text-[22px] leading-[27.06px]" style={{letterSpacing: "15px"}}>Easy step</h6>
+          <h2 className="font-bold text-primary uppercase text-[54px] leading-[66.42px] mt-2 tracking-wide">How to get the airdrop</h2>
+        </div>
+        <div className="mt-[42px] flex justify-center">
+          {
+            airdropList.map((item, id) => (
+              <Button prefix={id + 1} content={item} key={"item-" + id} />
+            ))
+          }
+        </div>
       </section>
     );
   }
   
-  export default AboutEvent;
+  export default Airdrop;

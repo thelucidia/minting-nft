@@ -2,13 +2,11 @@ import React from 'react';
 
 import Banner from "../views/home/Banner";
 
-import mainBackground from "/token/bombing.png";
- 
 const Login: React.FC = () => {
 
   return (
     <section className="w-full h-screen text-white relative mb-[605px] flex justify-center">
-      <Banner mainBackground={mainBackground} isCenter={true} />
+      <Banner />
       <div className="w-full z-20 h-screen create-id-back-blur absolute top-0 left-0 bg-prpl/10 z-1"></div>
       <div className="container max-w-[700px] mx-auto flex flex-row gap-x-5 absolute top-[286px] z-30">
         <div className="w-full h-auto bg-opacity-5 backdrop-filter backdrop-blur-lg">

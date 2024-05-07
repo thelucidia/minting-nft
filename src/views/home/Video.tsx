@@ -11,7 +11,7 @@ const Video = () => {
   };
 
   return (
-    <section className="video py-10 px-10 lg:px-20 flex items-center">
+    <section className="video relative py-10">
       <div
         className={`w-full h-screen bg-black fixed z-30 top-0 left-0 flex flex-col items-center justify-center  transition-all ease-in-out duration-300 ${trueLoading ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} `}
       >
@@ -20,46 +20,35 @@ const Video = () => {
           <h1 className="font-primary font-semibold text-2xl mt-10 tracking-widest">LOADING</h1>
         </div>
       </div>
-      <img
-        src="../hero/icon2.png"
-        alt="Herobg"
-        style={{
-          zIndex: 50,
-          margin: "-150px",
-          marginTop: "750px"
-        }}
-        className="flex object-cover text-image left-0"
-      />
-      <div className="video-view flex items-center py-10 px-40">
-        <div className="h-[700px] w-auto sm:clipped2 bg-[#B0EB10] flex items-center justify-center scale-x-[-1]">
-          <video
-            autoPlay
-            muted
-            loop
-            src="/videos/curseof.mp4"
-            preload={'auto'}
-            onLoadedData={handleTrue}
-            playsInline
-            className="w-full h-screen object-cover"
-          />
+      <div className="z-0 absolute top-0 left-0 bg-gradient-to-b w-full h-full"></div>
+      <div className="z-0 absolute top-0 left-0 bg-custom-gradient w-full h-full"></div>
+      <div className="relative z-20">
+        <div className="text-center">
+          <h3 className="text-primary text-[60px] font-semibold leading-[40px]">
+            New Experience of Gaming in Action
+          </h3>
         </div>
-        <div className="video-discription text-center mt-8">
-          <p className="text-[#B4B6BF] font-primary leading-[100%] group-hover:text-white w-[500px]">
-            Curse Of The Pharaoh is an action/adventure/survival game set in a post-apocalyptic world overrun by zombies. Collect weapon, bullet, and fuel props. Travel through open-world environment with different biomes.
-          </p>
+        <div className="flex items-center mt-[100px] justify-center container mx-auto lg: w-[1446px] xl: w-[1446px]">
+          <div className="video-discription">
+            <h4 className="text-primary font-semibold text-[36px] leading-[40px]">Flawless Play. Immersive Environment. Just Pure Gaming</h4>
+            <h5 className="text-primary font-normal text-[24px] leading-[32px] mt-6">Experience seamless gaming with Lucidia</h5>
+          </div>
+          <div className="video-view">
+            <div className="bg-[#B0EB10] gradient-box">
+              <video
+                autoPlay
+                muted
+                loop
+                src="/videos/curseof.mp4"
+                preload={'auto'}
+                onLoadedData={handleTrue}
+                playsInline
+                className="object-cover h-[400px] lg:w-[800px] rounded-[45px]"
+              />
+            </div>
+          </div>
         </div>
       </div>
-      <img
-        src="../hero/icon1.png"
-        alt="Herobg"
-        style={{
-          zIndex: 50,
-          marginLeft: "-90px",
-          marginRight: "-120px",
-          marginTop: "-800px"
-        }}
-        className="flex object-cover text-image right-0"
-      />
     </section>
   );
 }
