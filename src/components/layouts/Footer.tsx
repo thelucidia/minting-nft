@@ -38,26 +38,6 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="w-full h-auto min-h-screen relative pb-16">
-      {/* <div className="container mx-auto w-full text-white sm:mt-28 mt-10 px-5 text-left sm:text-center">
-        <div className="mt-10">
-          <p className="font-medium font-primary text-footergry text-[15px] sm:text-[22px] mt-2 sm:mt-0">
-            For more details about our progress and workflow be sure to follow
-          </p>
-        </div>
-
-        <ul className="flex w-fit sm:mx-auto mt-12 text-2xl sm:text-4xl sm:gap-x-7 gap-x-5">
-          {icons.map((items, i) => {
-            return (
-              <li className="hover:scale-[1.1] transition-all ease-in-out duration-300 hover:text-cyan " key={i}>
-                <a href={items.link} target="_blank" rel="noopener noreferrer" className="">
-                  {items.icon}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </div> */}
-
       <img
         src="/hero/navline.webp"
         alt="navline"
@@ -142,7 +122,7 @@ const Footer: React.FC = () => {
               placeholder="Discord"
             />
           </div>
-          <button className="bg-[#0ED4FF] rounded-[20px] px-[220px] py-[23px]">
+          <button className="bg-[#0ED4FF] rounded-[20px] px-[220px] py-[23px] hover:bg-white">
             <h4 className="text-black text-secondary text-[20px] leading-[17.5px] font-bold">subscribe</h4>
           </button>
         </div>

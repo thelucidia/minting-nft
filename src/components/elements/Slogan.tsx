@@ -1,6 +1,6 @@
 import React from "react";
 
-import Button from "./Button";
+import GradientButton from "./GradientButton";
 
 const Slogan: React.FC = () => {
 
@@ -55,7 +55,7 @@ const Slogan: React.FC = () => {
                                     <div>Second</div>
                                 </div>
                             </div>
-                            <Button content={"Join now"} />
+                            <GradientButton content={"Join now"} />
                         </div>
                     </div>
                     <div>

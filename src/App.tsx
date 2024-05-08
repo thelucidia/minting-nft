@@ -6,12 +6,20 @@ const Footer = lazy(() => import('./components/layouts/Footer'));
 
 import Landing from './pages/Landing';
 import CreateId from "./pages/CreateId";
+import ConnectWallet from './pages/ConnectWallet';
+import VerifyEmail from './pages/VerifyEmail';
+import CodeAuth from "./pages/CodeAuth";
+import JoinUs from './pages/JoinUs';
 
 export const BaseRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/create-id" element={<CreateId />} />
+      <Route path="/connect-wallet" element={<ConnectWallet />} />
+      <Route path="/verify-email" element={<VerifyEmail />} />
+      <Route path="/code-auth" element={<CodeAuth />} />
+      <Route path="/join-us" element={<JoinUs />} />
 
       {/* <Route path="/about" >
         <Route index element={<About />} />

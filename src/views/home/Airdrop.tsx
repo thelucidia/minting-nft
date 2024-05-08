@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../components/elements/Button";
+import GradientButton from "../../components/elements/GradientButton";
 
 const Airdrop: React.FC = () => {
 
@@ -14,7 +14,7 @@ const Airdrop: React.FC = () => {
         <div className="mt-[42px] flex justify-center">
           {
             airdropList.map((item, id) => (
-              <Button prefix={id + 1} content={item} key={"item-" + id} />
+              <GradientButton prefix={id + 1} content={item} key={"item-" + id} />
             ))
           }
         </div>

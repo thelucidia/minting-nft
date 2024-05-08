@@ -207,8 +207,8 @@ body {
 
 .create-id-back-blur {
   /* Vector */
-  top: 105px;
-  background: rgba(0, 0, 0, 0.7);
+  top: 95px;
+  background: rgba(0, 0, 0, 0);
   backdrop-filter: blur(10px);
   /* Note: backdrop-filter has minimal browser support */
   border-radius: 8.62866px;
@@ -249,4 +249,9 @@ body {
   outline: none;
   font-size: 14px;
   padding: 12px 50px;
+}
+
+.input-box:hover {
+  background-image: linear-gradient(white, white), 
+                    linear-gradient(to right, #000000, #087F99);
 }
