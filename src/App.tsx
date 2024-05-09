@@ -10,6 +10,10 @@ import ConnectWallet from './pages/ConnectWallet';
 import VerifyEmail from './pages/VerifyEmail';
 import CodeAuth from "./pages/CodeAuth";
 import JoinUs from './pages/JoinUs';
+import FinishAssessment from './pages/FinishAssessment';
+import BeLucidian from './pages/BeLucidian';
+import BackHome from './pages/BackHome';
+import UserInfo from './components/elements/UserInfo';
 
 export const BaseRoutes = () => {
   return (
@@ -20,6 +24,10 @@ export const BaseRoutes = () => {
       <Route path="/verify-email" element={<VerifyEmail />} />
       <Route path="/code-auth" element={<CodeAuth />} />
       <Route path="/join-us" element={<JoinUs />} />
+      <Route path="/finish-assessment" element={<FinishAssessment />} />
+      <Route path="/be-lucidian" element={<BeLucidian />} />
+      <Route path="/back-home" element={<BackHome />} />
+      <Route path="/user-info" element={<UserInfo />} />
 
       {/* <Route path="/about" >
         <Route index element={<About />} />
