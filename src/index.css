@@ -255,3 +255,9 @@ body {
   background-image: linear-gradient(white, white), 
                     linear-gradient(to right, #000000, #087F99);
 }
+
+.minting-banner {
+  background: linear-gradient(rgba(35, 35, 35, 0.5) 30%, rgba(21, 23, 23, 0.075) 84.81%);
+  border-radius: 20px;
+  transform: rotate(-180deg);
+}

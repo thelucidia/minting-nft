@@ -26,7 +26,7 @@ const Slogan: React.FC = () => {
                                 <h5 className="text-primary font-semibold text-[34px] leading-[41.82px] tracking-wide text-white">in total</h5>
                             </div>
                             <div className="flex justify-center items-center mx-[20px]">
-                                <img src="/hero/+.png" />
+                                <img src="/hero/+.png" alt="+" />
                             </div>
                             <div>
                                 <h5 className="text-primary font-bold text-[36px] leading-[44.28px] tracking-wide text-cyan">10K NFTS</h5>
@@ -34,7 +34,7 @@ const Slogan: React.FC = () => {
                                 <h5 className="text-primary font-semibold text-[34px] leading-[41.82px] tracking-wide text-white">available</h5>
                             </div>
                             <div className="flex justify-center items-center mx-[20px]">
-                                <img src="/hero/+.png" />
+                                <img src="/hero/+.png" alt="+" />
                             </div>
                             <div>
                                 <h5 className="text-primary font-bold text-[36px] leading-[44.28px] tracking-wide text-cyan">FREE MINT</h5>
@@ -59,7 +59,7 @@ const Slogan: React.FC = () => {
                         </div>
                     </div>
                     <div>
-                        <img src="/hero/Frame 625301.png" />
+                        <img src="/hero/Frame 625301.png" alt="Frame 625301" />
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ import {
 
 const ConnectWallet: React.FC = () => {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
   console.log(isLoggedIn);
   const { sdk, connected } = useSDK();
@@ -121,7 +121,7 @@ const ConnectWallet: React.FC = () => {
                                 onClick={connectMetaMask}
                             >
                                 <div className='flex flex-row justify-center item-center sm:gap-x-5 gap-x-2'>
-                                    <img src='/assets/wallet/metamask_icon.svg'/>
+                                    <img src='/assets/wallet/metamask_icon.svg' alt="metamask_icon" />
                                     <h4 className='text-white'>Metamask Connect</h4>
                                 </div>
                             </button>
@@ -131,7 +131,7 @@ const ConnectWallet: React.FC = () => {
                                 onClick={connectWallet}
                             >
                                 <div className='flex flex-row justify-center item-center sm:gap-x-5 gap-x-2'>
-                                    <img src='/assets/wallet/walletconnect_icon.svg'/>
+                                    <img src='/assets/wallet/walletconnect_icon.svg' alt="walletconnect_icon" />
                                     <h4  className='text-white'>Wallet Connect</h4>
                                 </div>
                             </button>

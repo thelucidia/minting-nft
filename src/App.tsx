@@ -14,6 +14,9 @@ import FinishAssessment from './pages/FinishAssessment';
 import BeLucidian from './pages/BeLucidian';
 import BackHome from './pages/BackHome';
 import UserInfo from './components/elements/UserInfo';
+import Minting from './pages/Minting';
+import PharaohCourse from './pages/PharaohCourse';
+import LucidiaNotes from './pages/LucidiaNotes';
 
 export const BaseRoutes = () => {
   return (
@@ -28,6 +31,9 @@ export const BaseRoutes = () => {
       <Route path="/be-lucidian" element={<BeLucidian />} />
       <Route path="/back-home" element={<BackHome />} />
       <Route path="/user-info" element={<UserInfo />} />
+      <Route path="/minting" element={<Minting />} />
+      <Route path="/pharaoh-course" element={<PharaohCourse />} />
+      <Route path="/lucidia-notes" element={<LucidiaNotes />} />
 
       {/* <Route path="/about" >
         <Route index element={<About />} />
@@ -50,7 +56,7 @@ const App: React.FC = () => {
     <section className="w-full h-full overflow-hidden bg-bg mx-auto">
       <Nav />
         <BaseRoutes />
-      {isFooter? <Footer /> : <></>}
+      {isFooter && <Footer />}
     </section>
   );
 };

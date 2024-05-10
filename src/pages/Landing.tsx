@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { motion } from 'framer-motion';
+
+const Video = lazy(() => import("../views/home/Video"));
+
 import Banner from "../views/home/Banner";
-import Video from "../views/home/Video";
 import Benefits from "../views/home/Benefits";
 import Airdrop from "../views/home/Airdrop";
 

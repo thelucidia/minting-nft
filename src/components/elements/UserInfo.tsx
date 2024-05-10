@@ -25,11 +25,11 @@ const UserInfo:React.FC = () => {
     return (
         <section className="mt-[200px]  container max-w-[386px]">
             <div className="relative flex flex-row gap-x-5 ">
-                <img src="/hero/Vector.png" />
+                <img src="/hero/Vector.png" alt="Vector" />
                 <div className="absolute top-0 left-0 w-full">
                     <div className="w-full flex justify-center mt-9">
                         <div className="mr-2">
-                            <img src="/hero/Rectangle 213.png" />
+                            <img src="/hero/Rectangle 213.png" alt="Rectangle 213" />
                         </div>
                         <div>
                             <div className="flex items-center mt-2">
@@ -39,7 +39,7 @@ const UserInfo:React.FC = () => {
                         </div>
                     </div>
                     <div className="absolute top-[107px] left-[20px] z-0">
-                        <img src="/hero/Vector-gray.png" />
+                        <img src="/hero/Vector-gray.png" alt="Vector-gray" />
                     </div>
                     <div className="w-[346px] mx-auto px-3 py-2 z-10 relative">
                         {
