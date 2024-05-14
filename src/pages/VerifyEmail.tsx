@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axiosConfig from "../services/axios-config";
 
 const VerifyEmail: React.FC = () => {
 
@@ -13,7 +13,11 @@ const VerifyEmail: React.FC = () => {
 
     const sendDataToServer = async() => {
         try {
-            const response = await axios.post("http://localhost:5000/api/user/send-code", {
+            // const response = await axiosConfig.post("/user/send-code", {
+            //     email
+            // });
+
+            const response = await axiosConfig.post("/user/send-code", {
                 email
             });
 

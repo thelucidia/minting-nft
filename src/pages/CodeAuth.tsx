@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axiosConfig from "../services/axios-config";
 import OtpInput from "react-otp-input";
 
 const CodeAuth: React.FC = () => {
@@ -12,7 +12,8 @@ const CodeAuth: React.FC = () => {
         try {
             console.log("otp: ", otp);
             const userEmail = localStorage.getItem("userEmail");
-            const response = await axios.post("http://localhost:5000/api/user/verify-code", {code: otp, email: userEmail});
+            // const response = await axios.post("/user/verify-code", {code: otp, email: userEmail});
+            const response = await axiosConfig.post("/user/verify-code", {code: otp, email: userEmail});
             console.log("response.data: ", response.data.msg);
             
             if (response.data.msg == "Verification successful") {
