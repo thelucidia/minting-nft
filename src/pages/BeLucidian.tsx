@@ -32,7 +32,7 @@ const BeLucidian: React.FC = () => {
                             <img src="/token/Group 625215.png" width="300px" alt="zombie2" />
                         </div>
                         <div className="mt-[10px]">
-                            <Link to="/">
+                            <Link to="/minting">
                                 <button className="rounded-[12px] bg-cyan hover:bg-white py-[13px] px-[150px] text-center bg-no-repeat bg-contain uppercase text-black">
                                     <h4 className="font-bold font-secondary">Claim</h4>
                                 </button>
