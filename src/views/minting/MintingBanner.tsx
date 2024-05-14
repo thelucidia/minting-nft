@@ -73,7 +73,6 @@ const MintingBanner: React.FC = () => {
                         </div>
                     </div>
                 </div>
-           
         </section>
     );
 };

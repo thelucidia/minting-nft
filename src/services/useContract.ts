@@ -1,7 +1,8 @@
 // import Web3 from "web3";
 import useWeb3 from "./useWeb3";
 
-const contractABI = require("../config/contractABI.json"); // Load our ABI
+import contractABI from "../config/contractABI.json"; // Load our ABI
+console.log("contractABI: ", contractABI);
 const contractAddress = "0x98E968Bd71a17794F6EBc40a4890d20B52Da5374"; // Your contract address
 
 const useContract = () => {
