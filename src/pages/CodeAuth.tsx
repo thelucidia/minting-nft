@@ -1,10 +1,30 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import OtpInput from "react-otp-input";
 
 const CodeAuth: React.FC = () => {
 
+    const navigate = useNavigate();
     const [otp, setOtp] = useState('');
+
+    const checkCode = async () => {
+        try {
+            console.log("otp: ", otp);
+            const userEmail = localStorage.getItem("userEmail");
+            const response = await axios.post("http://localhost:5000/api/user/verify-code", {code: otp, email: userEmail});
+            console.log("response.data: ", response.data.msg);
+            
+            if (response.data.msg == "Verification successful") {
+                navigate("/join-us");
+            } else {
+                console.log("Some errors occur.");
+            }
+
+        } catch(error) {
+            console.log("Error sending data to the server", error);
+        }
+    };
 
     return (
         <section className="w-full h-screen text-white relative mb-[605px] flex justify-center">
@@ -52,11 +72,9 @@ const CodeAuth: React.FC = () => {
                                 Didn't get the code? <span className="text-[#0ED4FF] hover:cursor-pointer">Resend the code</span>
                             </h6>
                             <div className="mt-[42px]">
-                                <Link to="/connect-wallet">
-                                    <button className="rounded-[12px] bg-cyan hover:bg-white py-[13px] px-[140px] text-center bg-no-repeat bg-contain uppercase text-black">
-                                        <h4 className="font-bold font-secondary">Confirm</h4>
-                                    </button>
-                                </Link>
+                                <button onClick={checkCode} className="rounded-[12px] bg-cyan hover:bg-white py-[13px] px-[140px] text-center bg-no-repeat bg-contain uppercase text-black">
+                                    <h4 className="font-bold font-secondary">Confirm</h4>
+                                </button>
                             </div>
                         </div> 
                     </div>

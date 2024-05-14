@@ -71,7 +71,7 @@ const FinishAssessment: React.FC = () => {
                                 }
                             </div>
                             <div className="mt-[30px]">
-                                <Link to="/connect-wallet">
+                                <Link to="/be-lucidian">
                                     <button className="rounded-[12px] bg-cyan hover:bg-white py-[13px] px-[140px] text-center bg-no-repeat bg-contain uppercase text-black">
                                         <h4 className="font-bold font-secondary">Confirm</h4>
                                     </button>

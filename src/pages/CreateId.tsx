@@ -27,7 +27,7 @@ const Login: React.FC = () => {
                 </h6>
                 <div className="flex justify-center">
                     <div className="mr-[30px]">
-                        <img src="/token/Group 625215.png" alt="zombie2" />
+                        <img src="/token/Group 625215.png" alt="zombie2" className="h-[200px] w-[200px]" />
                     </div>
                     <div className="text-white font-primary flex items-center">
                         <div className="mt-13">

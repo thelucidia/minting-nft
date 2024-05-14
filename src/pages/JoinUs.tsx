@@ -76,7 +76,7 @@ const JoinUs: React.FC = () => {
                                 }
                             </div>
                             <div className="mt-[42px]">
-                                <Link to="/">
+                                <Link to="/finish-assessment">
                                     <button className="rounded-[12px] bg-[#454545] hover:bg-white py-[13px] px-[140px] text-center bg-no-repeat bg-contain uppercase text-black">
                                         <h4 className="font-bold font-secondary">confirm</h4>
                                     </button>

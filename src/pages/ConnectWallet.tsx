@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import { useSDK } from '@metamask/sdk-react';
 import {
   WalletConnectModalSign,
-  useConnect,
+  useConnect 
   // useRequest
  } from '@walletconnect/modal-sign-react'
  import { sphereoneSDK } from '../config';
 
 const ConnectWallet: React.FC = () => {
+  let navigate = useNavigate();
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -53,17 +55,10 @@ const ConnectWallet: React.FC = () => {
       return;
     }
     if (connected) {
-      window.location.href = `/`;
+      // window.location.href = `/`;
+      navigate("/verify-email");
     }
   }, [connected]);
-
-  // const login = async () => {
-  //   try {
-  //     await sphereoneSDK.login();
-  //   } catch (e: any) {
-  //     console.error(e);
-  //   }
-  // };
 
   const connectMetaMask = async (evt: { preventDefault: () => void; stopPropagation: () => void }) => {
     evt.preventDefault();
@@ -82,7 +77,6 @@ const ConnectWallet: React.FC = () => {
     }
   };
 
-
   const connectWallet =  async () => {
     try {
       setDisabled(true)
@@ -95,7 +89,6 @@ const ConnectWallet: React.FC = () => {
       setDisabled(false)
     }
   }
-
 
     return (
         <section className="w-full h-screen text-white relative mb-[605px] flex justify-center">

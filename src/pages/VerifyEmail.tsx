@@ -1,7 +1,37 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const VerifyEmail: React.FC = () => {
+
+    const[email, setEmail] = useState<string>("");
+    const navigate = useNavigate();
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(event.target.value);
+    };
+
+    const sendDataToServer = async() => {
+        try {
+            const response = await axios.post("http://localhost:5000/api/user/send-code", {
+                email
+            });
+
+            localStorage.setItem("userEmail", email);
+
+            console.log("Server response: ", response.data);
+
+            if(email == response.data.email) {
+                navigate("/code-auth");
+            } else {
+                console.log("Email not matched.");
+            };
+            
+        } catch(error) {
+            console.log("Error sending data to the server", error);
+        }
+    }
+
     return (
         <section className="w-full h-screen text-white relative mb-[605px] flex justify-center">
             <img
@@ -25,9 +55,11 @@ const VerifyEmail: React.FC = () => {
                                 <div className="h-11 clipped2 bg-gradient-to-r from-[#7700FF] to-[#FFFFFF] relative flex items-center scale-x-[-1]">
                                     <div className="absolute bg-black w-[99%] h-[93%] left-0 top-0 right-0 bottom-0 m-auto clipped2"></div>
                                     <input
-                                        type="text"
-                                        className="px-10 font-primary w-full relative z-10 text-[14px] scale-x-[-1] bg-transparent outline-none"
+                                        type="email"
+                                        className="px-10 font-primary w-full relative z-10 text-[16px] scale-x-[-1] bg-transparent outline-none"
                                         placeholder="ENTER YOUR EMAIL"
+                                        value={email}
+                                        onChange={handleInputChange}
                                     />
                                 </div>
                                 <h6 className="font-second font-third text-white text-base text-left leading-[24px] mt-3">
@@ -35,11 +67,12 @@ const VerifyEmail: React.FC = () => {
                                 </h6>
                             </div>
                             <div className="mt-[42px]">
-                                <Link to="/connect-wallet">
-                                    <button className="rounded-[12px] bg-cyan hover:bg-white py-[13px] px-[87px] text-center bg-no-repeat bg-contain uppercase text-black">
-                                        <h4 className="font-bold font-secondary">Send code</h4>
-                                    </button>
-                                </Link>
+                                <button 
+                                    onClick={sendDataToServer}
+                                    className="rounded-[12px] bg-cyan hover:bg-white py-[13px] px-[87px] text-center bg-no-repeat bg-contain uppercase text-black"
+                                >
+                                    <h4 className="font-bold font-secondary">Send code</h4>
+                                </button>
                             </div>
                         </div> 
                     </div>
