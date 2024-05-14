@@ -32,6 +32,7 @@
     "slick-carousel": "^1.8.1",
     "three": "^0.162.0",
     "web-vitals": "^3.5.2",
+    "web3": "^4.8.0",
     "websdk": "github:SphereGlobal/WebSDK#main"
   },
   "devDependencies": {
@@ -39,6 +40,7 @@
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@types/react-slick": "^0.23.13",
+    "@types/web3": "^1.2.2",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "@vitejs/plugin-react": "^4.0.0",

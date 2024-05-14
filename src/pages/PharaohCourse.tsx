@@ -8,7 +8,11 @@ import {
  import { sphereoneSDK } from '../config';
  import { Link } from "react-router-dom";
 
+ import useContract from "../services/useContract";
+
 const PharaohCourse: React.FC = () => {
+
+  const contract = useContract();
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,6 +33,7 @@ const PharaohCourse: React.FC = () => {
         }
       }
     });
+
     const projectId = '6a2e9030474264df3b50c650c2b521b5';
   
     useEffect(() => {
@@ -58,6 +63,10 @@ const PharaohCourse: React.FC = () => {
         window.location.href = `/`;
       }
     }, [connected]);
+
+    const mintHandler = () =>{
+      contract.methods.mint().call();
+    }
 
     const connectMetaMask = async (evt: { preventDefault: () => void; stopPropagation: () => void }) => {
         evt.preventDefault();
@@ -164,8 +173,8 @@ const PharaohCourse: React.FC = () => {
                                     </div>
                                 </div>
                                 <div className="mt-[50px]">
-                                    <Link to="/connect-wallet">
-                                        <button className="w-[75%] rounded-[12px] bg-cyan hover:bg-white py-[13px] px-[87px] text-center bg-no-repeat bg-contain uppercase text-black">
+                                    <Link to="/lucidia-notes">
+                                        <button onClick={mintHandler} className="w-[75%] rounded-[12px] bg-cyan hover:bg-white py-[13px] px-[87px] text-center bg-no-repeat bg-contain uppercase text-black">
                                             <h4 className="font-bold font-secondary">Mint now</h4>
                                         </button>
                                     </Link>

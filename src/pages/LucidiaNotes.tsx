@@ -53,7 +53,7 @@ const LucidiaNotes: React.FC = () => {
                                     </div>
                                     <div className="mt-[50px] w-[80%]">
                                         <button className="w-full rounded-[12px] bg-[#454545] hover:bg-cyan py-[13px] px-[87px] text-center bg-no-repeat bg-contain uppercase text-black">
-                                            <h4 className="font-bold font-secondary">Mint now</h4>
+                                            <h4 className="font-bold font-secondary">Back to homepage</h4>
                                         </button>
                                     </div>
                                 </div>

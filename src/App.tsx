@@ -18,6 +18,8 @@ import Minting from './pages/Minting';
 import PharaohCourse from './pages/PharaohCourse';
 import LucidiaNotes from './pages/LucidiaNotes';
 
+// let web3: any;
+
 export const BaseRoutes = () => {
   return (
     <Routes>

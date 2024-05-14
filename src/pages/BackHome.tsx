@@ -29,7 +29,7 @@ const BackHome: React.FC = () => {
                             </h6>
                         </div>
                         <div className="mt-[10px]">
-                            <Link to="/connect-wallet">
+                            <Link to="/">
                                 <button className="rounded-[12px] bg-cyan hover:bg-white py-[13px] px-[150px] text-center bg-no-repeat bg-contain uppercase text-black">
                                     <h4 className="font-bold font-secondary">Back to Homepage</h4>
                                 </button>
