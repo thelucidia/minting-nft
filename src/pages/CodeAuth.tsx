@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useTransition} from "react";
 import { useNavigate } from "react-router-dom";
 import axiosConfig from "../services/axios-config";
 import OtpInput from "react-otp-input";
 
 const CodeAuth: React.FC = () => {
-
+    // const [isPending, startTransition] = useTransition();
     const navigate = useNavigate();
     const [otp, setOtp] = useState('');
 
