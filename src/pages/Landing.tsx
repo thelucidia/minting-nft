@@ -19,7 +19,7 @@ const Landing: React.FC = () => {
         <Banner />
         <Airdrop />
         <Benefits />
-        <Video />
+        {/* <Video /> */}
       </section>
     </motion.div>
   );
