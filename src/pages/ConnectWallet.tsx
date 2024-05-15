@@ -50,6 +50,7 @@ const ConnectWallet: React.FC = () => {
       console.log(e);
     }
   }, []);
+  
   useEffect(() => {
     if (!fetched) {
       return;
@@ -60,9 +61,7 @@ const ConnectWallet: React.FC = () => {
     }
   }, [connected]);
 
-  const connectMetaMask = async (evt: { preventDefault: () => void; stopPropagation: () => void }) => {
-    evt.preventDefault();
-    evt.stopPropagation();
+  const connectMetaMask = async () => {
     try {
       console.log('connected: ', connected);
       if (connected) {
@@ -118,6 +117,7 @@ const ConnectWallet: React.FC = () => {
                                     <h4 className='text-white'>Metamask Connect</h4>
                                 </div>
                             </button>
+                            {connected && (<h5 className="mx-auto text-bl">Metamask connected</h5>)}
                             {failed && (<h5 className="mx-auto text-bl">Metamask connect faild</h5>)}
                             <button
                                 className="border border-solid border-[#0ED4FF] min-w-[343px] mx-auto mt-2 rounded-[10px] bg-transparent hover:bg-[#0ED4FF] font-secondary font-semibold text-[15px] py-[12px] text-center uppercase text-white mb-12"

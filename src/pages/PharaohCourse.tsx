@@ -35,7 +35,8 @@ const PharaohCourse: React.FC = () => {
     });
 
     const projectId = '6a2e9030474264df3b50c650c2b521b5';
-  
+    // const projectId = "7a751708c28fa077881a06678b365bc9";
+
     useEffect(() => {
       setFetched(true);
       try {
@@ -65,13 +66,14 @@ const PharaohCourse: React.FC = () => {
       }
     }, [connected]);
 
-    const mintHandler = () =>{
-      if (contract) contract.methods.mint().call();
+    const mintHandler = async() =>{
+      if (contract) {
+        let contractResult = await contract.methods.mint().call();
+        console.log("contractResult: ", contractResult);
+      }
     }
 
-    const connectMetaMask = async (evt: { preventDefault: () => void; stopPropagation: () => void }) => {
-        evt.preventDefault();
-        evt.stopPropagation();
+    const connectMetaMask = async () => {
         try {
           console.log('connected: ', connected);
           if (connected) {
@@ -138,6 +140,7 @@ const PharaohCourse: React.FC = () => {
                                         <h4 className='text-white'>Metamask Connect</h4>
                                     </div>
                                 </button>
+                                {connected && (<h5 className="mx-auto text-bl">Metamask connected</h5>)}
                                 {failed && (<h5 className="mx-auto text-bl">Metamask connect faild</h5>)}
                                 <button
                                     className="border border-solid border-[#0ED4FF] min-w-[343px] mx-auto mt-6 rounded-[10px] bg-transparent hover:bg-[#0ED4FF] font-secondary font-semibold text-[15px] py-[8px] text-center uppercase text-white mb-3"
