@@ -8,7 +8,7 @@ const MintingBanner: React.FC = () => {
 
     const handleTrue = () => {
         setTimeout(() => {
-        setTrueLoading(false);
+            setTrueLoading(false);
         }, 1500);
     };
 
