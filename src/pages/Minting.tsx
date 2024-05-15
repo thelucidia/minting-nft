@@ -16,10 +16,10 @@ const Minting: React.FC = () => {
             className="bg-black"
         >
             <section className="w-full h-auto overflow-hidden bg-bg">
-                <MintingBanner />
+                {/* <MintingBanner />
                 <Airdrop />
                 <Benefits />
-                <Video />
+                <Video /> */}
             </section>
         </motion.div>
     );
