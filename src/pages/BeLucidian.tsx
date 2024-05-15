@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 
 const BeLucidian: React.FC = () => {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     return (
         <section className="w-full h-screen text-white relative mb-[605px] flex justify-center">
