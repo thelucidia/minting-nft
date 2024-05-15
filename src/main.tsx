@@ -16,8 +16,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           name: "Demo React App",
           url: window.location.host,
         }
-      }}>
-        <App />
-      </MetaMaskProvider>
+    }}>
+      <App />
+    </MetaMaskProvider>
   </BrowserRouter>,
 );

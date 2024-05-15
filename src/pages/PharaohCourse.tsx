@@ -27,9 +27,9 @@ const PharaohCourse: React.FC = () => {
     const { connect } = useConnect({
       requiredNamespaces: {
         eip155: {
-        methods: ['eth_sendTransaction', 'personal_sign'],
-        chains: ['eip155:1'],
-        events: ['chainChanged', 'accountsChanged']
+          methods: ['eth_sendTransaction', 'personal_sign'],
+          chains: ['eip155:1'],
+          events: ['chainChanged', 'accountsChanged']
         }
       }
     });
