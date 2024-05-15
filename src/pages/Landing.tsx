@@ -16,9 +16,9 @@ const Landing: React.FC = () => {
       className="bg-black"
     >
       <section className="w-full h-auto overflow-hidden bg-bg">
-        <Banner />
+        {/* <Banner />
         <Airdrop />
-        <Benefits />
+        <Benefits /> */}
         {/* <Video /> */}
       </section>
     </motion.div>
