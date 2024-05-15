@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, startTransition} from "react";
 
 import GradientButton from "../../components/elements/GradientButton";
 
@@ -7,9 +7,11 @@ const MintingBanner: React.FC = () => {
     const [trueLoading, setTrueLoading] = useState(true);
 
     const handleTrue = () => {
-        setTimeout(() => {
-            setTrueLoading(false);
-        }, 1500);
+        startTransition(() => {
+            setTimeout(() => {
+                setTrueLoading(false);
+            }, 1500);
+        })
     };
 
     useEffect(() => {

@@ -5,7 +5,7 @@ import {
   useConnect,
   // useRequest
  } from '@walletconnect/modal-sign-react'
-// import { sphereoneSDK } from '../config';
+import { sphereoneSDK } from '../config';
 import { Link } from "react-router-dom";
 
 import useContract from "../services/useContract";
@@ -14,12 +14,12 @@ const PharaohCourse: React.FC = () => {
 
   const contract = useContract();
 
-    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    // console.log(isLoggedIn);
+    console.log(isLoggedIn);
     const { sdk, connected } = useSDK();
     const [failed, setFailed] = useState(false);
-    // const [fetched, setFetched] = useState(false);
+    const [fetched, setFetched] = useState(false);
   
     const [session, setSession] = useState({});  
     const [disabled, setDisabled] = useState(false);
@@ -36,33 +36,34 @@ const PharaohCourse: React.FC = () => {
 
     const projectId = '6a2e9030474264df3b50c650c2b521b5';
   
-    // useEffect(() => {
-    //   setFetched(true);
-    //   try {
-    //     const handleAuth = async () => {
-    //       const authResult: any = await sphereoneSDK.handleCallback();
-    //       if (authResult?.access_token) {
-    //         const { access_token, profile } = authResult;
-    //         console.log('access_token: ', access_token, 'profile: ', profile);
-    //         setIsLoggedIn(true);
-    //       } else {
-    //         setIsLoggedIn(false);
-    //       }
-    //     };
-    //     handleAuth();
-    //   } catch (e) {
-    //     console.log(e);
-    //   }
-    // }, []);
+    useEffect(() => {
+      setFetched(true);
+      try {
+        const handleAuth = async () => {
+          const authResult: any = await sphereoneSDK.handleCallback();
+          if (authResult?.access_token) {
+            const { access_token, profile } = authResult;
+            console.log('access_token: ', access_token, 'profile: ', profile);
+            setIsLoggedIn(true);
+          } else {
+            setIsLoggedIn(false);
+          }
+        };
+        handleAuth();
+      } catch (e) {
+        console.log(e);
+      }
+    }, []);
 
-    // useEffect(() => {
-    //   if (!fetched) {
-    //     return;
-    //   }
-    //   if (connected) {
-    //     window.location.href = `/`;
-    //   }
-    // }, [connected]);
+    useEffect(() => {
+      if (!fetched) {
+        return;
+      }
+      if (connected) {
+        // window.location.href = '/';
+        console.log("connected: ");
+      }
+    }, [connected]);
 
     const mintHandler = () =>{
       if (contract) contract.methods.mint().call();
