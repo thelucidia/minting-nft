@@ -5,17 +5,17 @@ import {
   useConnect,
   // useRequest
  } from '@walletconnect/modal-sign-react'
- import { sphereoneSDK } from '../config';
- import { Link } from "react-router-dom";
+import { sphereoneSDK } from '../config';
+import { Link } from "react-router-dom";
 
- import useContract from "../services/useContract";
+import useContract from "../services/useContract";
 
 const PharaohCourse: React.FC = () => {
 
   const contract = useContract();
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+    
     console.log(isLoggedIn);
     const { sdk, connected } = useSDK();
     const [failed, setFailed] = useState(false);
@@ -65,7 +65,7 @@ const PharaohCourse: React.FC = () => {
     }, [connected]);
 
     const mintHandler = () =>{
-      contract.methods.mint().call();
+      if (contract) contract.methods.mint().call();
     }
 
     const connectMetaMask = async (evt: { preventDefault: () => void; stopPropagation: () => void }) => {
