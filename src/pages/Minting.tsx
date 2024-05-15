@@ -1,11 +1,10 @@
-import React, { lazy } from "react";
+import React from "react";
 import { motion } from 'framer-motion';
-
-const Video = lazy(() => import("../views/home/Video"));
 
 import MintingBanner from "../views/minting/MintingBanner";
 import Benefits from "../views/home/Benefits";
 import Airdrop from "../views/home/Airdrop";
+import Video from "../views/home/Video";
 
 const Minting: React.FC = () => {
     return (

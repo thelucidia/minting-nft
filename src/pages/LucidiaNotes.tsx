@@ -1,6 +1,6 @@
 import React from "react";
 
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const LucidiaNotes: React.FC = () => {
 
@@ -52,9 +52,11 @@ const LucidiaNotes: React.FC = () => {
                                         </ul>
                                     </div>
                                     <div className="mt-[50px] w-[80%]">
-                                        <button className="w-full rounded-[12px] bg-[#454545] hover:bg-cyan py-[13px] px-[87px] text-center bg-no-repeat bg-contain uppercase text-black">
-                                            <h4 className="font-bold font-secondary">Back to homepage</h4>
-                                        </button>
+                                        <Link to="/">
+                                            <button className="w-full rounded-[12px] bg-[#454545] hover:bg-cyan py-[13px] px-[87px] text-center bg-no-repeat bg-contain uppercase text-black">
+                                                <h4 className="font-bold font-secondary">Back to homepage</h4>
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
