@@ -15,6 +15,8 @@ const PharaohCourse: React.FC = () => {
   const contract = useContract();
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [mintResult, setMintResult] = useState(null);
+    const [mintError, setMintError] = useState(null);
 
     console.log(isLoggedIn);
     const { sdk, connected } = useSDK();
@@ -68,8 +70,12 @@ const PharaohCourse: React.FC = () => {
 
     const mintHandler = async() =>{
       if (contract) {
-        let contractResult = await contract.methods.mint().call();
-        console.log("contractResult: ", contractResult);
+        try {
+          let contractResult = await contract.methods.mint().call();
+          console.log("contractResult: ", contractResult);
+        } catch (error) {
+          console.log("Minting failed: ", error);
+        }
       }
     }
 
@@ -93,10 +99,10 @@ const PharaohCourse: React.FC = () => {
         try {
           setDisabled(true)
           const session = await connect()
-          console.info(session)
+          console.log("session: ", session);
           setSession(session)
-        } catch (err) {
-          console.error(err)
+        } catch (error) {
+          console.error(error)
         } finally {
           setDisabled(false)
         }
