@@ -5,7 +5,7 @@ import {
   useConnect,
   // useRequest
  } from '@walletconnect/modal-sign-react'
-import { sphereoneSDK } from '../config';
+// import { sphereoneSDK } from '../config';
 import { Link } from "react-router-dom";
 
 import useContract from "../services/useContract";
@@ -14,18 +14,18 @@ const PharaohCourse: React.FC = () => {
 
   const contract = useContract();
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [mintResult, setMintResult] = useState<any>(null);
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+    // const [mintResult, setMintResult] = useState<any>(null);
     const [mintError, setMintError] = useState<string | null>(null);
-
-    console.log(isLoggedIn);
+    const [account, setAccount] = useState();
+    // console.log(isLoggedIn);
     const { sdk, connected } = useSDK();
     const [failed, setFailed] = useState(false);
     const [fetched, setFetched] = useState(false);
   
     const [session, setSession] = useState<any>(null);  
     const [disabled, setDisabled] = useState(false);
-    console.log(session, disabled);
+    // console.log(session, disabled);
     const { connect } = useConnect({
       requiredNamespaces: {
         eip155: {
@@ -39,25 +39,25 @@ const PharaohCourse: React.FC = () => {
     const projectId = '6a2e9030474264df3b50c650c2b521b5';
     // const projectId = "7a751708c28fa077881a06678b365bc9";
 
-    useEffect(() => {
-      setFetched(true);
-      try {
-        const handleAuth = async () => {
-          const authResult: any = await sphereoneSDK.handleCallback();
-          if (authResult?.access_token) {
-            // const { access_token, profile } = authResult;
-            // console.log('access_token: ', access_token, 'profile: ', profile);
-            setIsLoggedIn(true);
-          } else {
-            setIsLoggedIn(false);
-          }
-        };
-        handleAuth();
-      } catch (e) {
-        console.log(e);
-      }
+    // useEffect(() => {
+    //   setFetched(true);
+    //   try {
+    //     const handleAuth = async () => {
+    //       const authResult: any = await sphereoneSDK.handleCallback();
+    //       if (authResult?.access_token) {
+    //         // const { access_token, profile } = authResult;
+    //         // console.log('access_token: ', access_token, 'profile: ', profile);
+    //         setIsLoggedIn(true);
+    //       } else {
+    //         setIsLoggedIn(false);
+    //       }
+    //     };
+    //     handleAuth();
+    //   } catch (e) {
+    //     console.log(e);
+    //   }
 
-    }, []);
+    // }, []);
 
     useEffect(() => {
       if (!fetched) {
@@ -80,19 +80,9 @@ const PharaohCourse: React.FC = () => {
         // const txResponse = await contract.methods.mint().send({ from: session.address });
         // const receipt = await txResponse.wait();
         // setMintResult(receipt);
-
-        contract.methods.mint().send({ from: session.address })
-      .on('transactionHash', function(hash){
-        console.log('Transaction hash:', hash);
-      })
-      .on('receipt', function(receipt){
-        console.log('Transaction receipt:', receipt);
-        setMintResult(receipt);
-      })
-      .on('error', function(error){
-        console.error("Minting failed: ", error);
-        setMintError(error.message);
-      });
+        console.log("contract: ", contract.methods, account);
+        const txResponse = await contract.methods.mint().send({from: account});
+        console.log("txResponse: ", txResponse);
 
       } catch (err) {
         // Check if the error has a message property
@@ -110,12 +100,14 @@ const PharaohCourse: React.FC = () => {
     const connectMetaMask = async () => {
         try {
           console.log('connected: ', connected);
-          if (connected) {
-            await sdk?.terminate();
-          } else {
+          // if (connected) {
+          //   await sdk?.terminate();
+          // } else {
             await window.ethereum?.request({ method: 'eth_requestAccounts' });
-            await sdk?.connect();
-          }
+            const accounts = await sdk?.connect();
+            console.log("accounts: ", accounts[0]);
+            setAccount(accounts?.[0]);
+          // }
         } catch (err) {
           console.error(err);
           setFailed(true);
