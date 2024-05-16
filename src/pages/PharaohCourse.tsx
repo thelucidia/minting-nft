@@ -15,15 +15,15 @@ const PharaohCourse: React.FC = () => {
   const contract = useContract();
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [mintResult, setMintResult] = useState(null);
-    const [mintError, setMintError] = useState(null);
+    const [mintResult, setMintResult] = useState<any>(null);
+    const [mintError, setMintError] = useState<string | null>(null);
 
     console.log(isLoggedIn);
     const { sdk, connected } = useSDK();
     const [failed, setFailed] = useState(false);
     const [fetched, setFetched] = useState(false);
   
-    const [session, setSession] = useState({});  
+    const [session, setSession] = useState<any>(null);  
     const [disabled, setDisabled] = useState(false);
     console.log(session, disabled);
     const { connect } = useConnect({
@@ -45,8 +45,8 @@ const PharaohCourse: React.FC = () => {
         const handleAuth = async () => {
           const authResult: any = await sphereoneSDK.handleCallback();
           if (authResult?.access_token) {
-            const { access_token, profile } = authResult;
-            console.log('access_token: ', access_token, 'profile: ', profile);
+            // const { access_token, profile } = authResult;
+            // console.log('access_token: ', access_token, 'profile: ', profile);
             setIsLoggedIn(true);
           } else {
             setIsLoggedIn(false);
@@ -56,6 +56,7 @@ const PharaohCourse: React.FC = () => {
       } catch (e) {
         console.log(e);
       }
+
     }, []);
 
     useEffect(() => {
@@ -68,13 +69,40 @@ const PharaohCourse: React.FC = () => {
       }
     }, [connected]);
 
+    const isErrored = (error: any): error is { message: string } => {
+      return typeof error.message === 'string';
+    };
+
     const mintHandler = async() =>{
-      if (contract) {
-        try {
-          let contractResult = await contract.methods.mint().call();
-          console.log("contractResult: ", contractResult);
-        } catch (error) {
-          console.log("Minting failed: ", error);
+      if (!contract) return;
+
+      try {
+        // const txResponse = await contract.methods.mint().send({ from: session.address });
+        // const receipt = await txResponse.wait();
+        // setMintResult(receipt);
+
+        contract.methods.mint().send({ from: session.address })
+      .on('transactionHash', function(hash){
+        console.log('Transaction hash:', hash);
+      })
+      .on('receipt', function(receipt){
+        console.log('Transaction receipt:', receipt);
+        setMintResult(receipt);
+      })
+      .on('error', function(error){
+        console.error("Minting failed: ", error);
+        setMintError(error.message);
+      });
+
+      } catch (err) {
+        // Check if the error has a message property
+        if (isErrored(err)) {
+          console.error("Minting failed: ", err.message);
+          setMintError(err.message);
+        } else {
+          // If the error does not have a message property, handle it as a generic error
+          console.error("Minting failed with an unknown error.");
+          setMintError("An unknown error occurred during minting.");
         }
       }
     }
