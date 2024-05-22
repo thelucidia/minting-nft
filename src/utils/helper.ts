@@ -1,0 +1,1 @@
+export const trimAddress = (address: `0x${string}`) => `${address.substring(0, 5)}...${address.substring(address.length - 4)}`;

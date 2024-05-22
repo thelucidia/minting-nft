@@ -13,10 +13,6 @@ const VerifyEmail: React.FC = () => {
 
     const sendDataToServer = async() => {
         try {
-            // const response = await axiosConfig.post("/user/send-code", {
-            //     email
-            // });
-
             const response = await axiosConfig.post("/user/send-code", {
                 email
             });

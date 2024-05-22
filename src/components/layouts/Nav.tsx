@@ -3,9 +3,11 @@ import { MdClose } from 'react-icons/md';
 import { useState, useEffect } from 'react';
 import { MdKeyboardArrowUp } from 'react-icons/md';
 import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { clsx } from 'clsx';
 import Config from '../../config';
+import { useAccount } from 'wagmi';
+import { trimAddress } from '../../utils/helper';
 
 const Nav: React.FC = () => {
   const navList = [
@@ -164,7 +166,8 @@ const Nav: React.FC = () => {
   ];
 
   const { pathname } = useLocation();
-
+  const navigate = useNavigate();
+  const { address } = useAccount();
   const [audit, setAudit] = useState(false);
 
   const handleAudit = () => {
@@ -203,9 +206,17 @@ const Nav: React.FC = () => {
     };
   }, [screenSize]);
 
+  const loginBtnClickHandler = () => {
+    if (localStorage.getItem("isUser")) {
+      navigate("/connect-wallet")
+      return;
+    }
+    navigate("/create-id")
+  }
+
   const [subdomain] = window.location.hostname.split('.');
   const isApp = subdomain === 'app';
-  
+
   return (
     <>
       <nav
@@ -220,112 +231,95 @@ const Nav: React.FC = () => {
           <ul className="text-white font-secondary font-semibold uppercase px-7 w-full py-12 text-sm">
             {subdomain !== 'app' && subdomain !== 'test'
               ? navMobile.map((items, i) => {
-                  return items.type === 'external' ? (
-                    <a
-                      // href={items.slug}
-                      href={!isApp ? `${Config.production ? Config.appHost : Config.appLocalHost}` : '/login'}
-                      onClick={handleNav}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full h-full"
-                      key={i}
-                    >
-                      <motion.li
-                        initial={{ x: 100, opacity: 0 }}
-                        animate={navActive ? { x: 0, opacity: 1 } : {}}
-                        transition={{ duration: 0.7, delay: 0.5 * (i * 0.1), ease: [0.16, 0.77, 0.47, 0.97] }}
-                        className={`border-t-[1px] border-white/10 py-5 ${items.name === 'faq' ? 'border-b-[1px]' : ''} `}
-                      >
-                        {items.name}
-                      </motion.li>
-                    </a>
-                  ) : items.type === 'internal' ? (
-                    <Link to={`${items.slug}`} className="w-full h-full" key={i} onClick={handleNav}>
-                      <motion.li
-                        initial={{ x: 100, opacity: 0 }}
-                        animate={navActive ? { x: 0, opacity: 1 } : {}}
-                        transition={{ duration: 0.7, delay: 0.5 * (i * 0.1), ease: [0.16, 0.77, 0.47, 0.97] }}
-                        className={`border-t-[1px] border-white/10 py-5 ${items.name === 'faq' ? 'border-b-[1px]' : ''} `}
-                      >
-                        {items.name}
-                      </motion.li>
-                    </Link>
-                  ) : items.name === 'audit' ? (
-                    <motion.li
-                      initial={{ x: 100, opacity: 0 }}
-                      animate={navActive ? { x: 0, opacity: 1 } : {}}
-                      transition={{ duration: 0.7, delay: 0.5 * (i * 0.1), ease: [0.16, 0.77, 0.47, 0.97] }}
-                      className={`border-t-[1px] border-white/10 py-5 group`}
-                      onClick={handleAudit}
-                      key={i}
-                    >
-                      <div className="w-full flex justify-between items-center cursor-pointer group-hover:text-cyan">
-                        <p className="">{items.name}</p>
-                        <MdKeyboardArrowUp
-                          className={`text-2xl transition-all ease-in-out duration-300  ${audit ? 'rotate-0' : 'rotate-180'}`}
-                        />
-                      </div>
-                      {/* <div
-                    className={`text-footergry  flex flex-col gap-y-2  overflow-hidden transition-all ease-in-out duration-300 ${audit ? 'max-h-[5rem] mt-4' : 'max-h-0 mt-0'} `}
+                return items.type === 'external' ? (
+                  <a
+                    // href={items.slug}
+                    href={!isApp ? `${Config.production ? Config.appHost : Config.appLocalHost}` : '/login'}
+                    onClick={handleNav}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full h-full"
+                    key={i}
                   >
-                    {items.sub?.map((items, i) => {
-                      return (
-                        <a
-                          href={items.link}
-                          target="_blank"
-                          rel="noreferrer noopener"
-                          className="hover:text-white"
-                          key={i}
-                        >
-                          {items.title}
-                        </a>
-                      );
-                    })}
-                  </div> */}
-                    </motion.li>
-                  ) : null;
-                })
-              : appNavMobile.map((items, i) => {
-                  return items.type === 'external' ? (
-                    <a href={items.slug} target="_blank" rel="noopener noreferrer" className="w-full h-full" key={i}>
-                      <motion.li
-                        initial={{ x: 100, opacity: 0 }}
-                        animate={navActive ? { x: 0, opacity: 1 } : {}}
-                        transition={{ duration: 0.7, delay: 0.5 * (i * 0.1), ease: [0.16, 0.77, 0.47, 0.97] }}
-                        className={`border-t-[1px] border-white/10 py-5 ${items.name === 'faq' ? 'border-b-[1px]' : ''} `}
-                      >
-                        {items.name}
-                      </motion.li>
-                    </a>
-                  ) : items.type === 'internal' ? (
-                    <Link to={`${items.slug}`} className="w-full h-full" key={i} onClick={handleNav}>
-                      <motion.li
-                        initial={{ x: 100, opacity: 0 }}
-                        animate={navActive ? { x: 0, opacity: 1 } : {}}
-                        transition={{ duration: 0.7, delay: 0.5 * (i * 0.1), ease: [0.16, 0.77, 0.47, 0.97] }}
-                        className={`border-t-[1px] border-white/10 py-5 ${items.name === 'faq' ? 'border-b-[1px]' : ''} `}
-                      >
-                        {items.name}
-                      </motion.li>
-                    </Link>
-                  ) : items.name === 'audit' ? (
                     <motion.li
                       initial={{ x: 100, opacity: 0 }}
                       animate={navActive ? { x: 0, opacity: 1 } : {}}
                       transition={{ duration: 0.7, delay: 0.5 * (i * 0.1), ease: [0.16, 0.77, 0.47, 0.97] }}
-                      className={`border-t-[1px] border-white/10 py-5 group`}
-                      onClick={handleAudit}
-                      key={i}
+                      className={`border-t-[1px] border-white/10 py-5 ${items.name === 'faq' ? 'border-b-[1px]' : ''} `}
                     >
-                      <div className="w-full flex justify-between items-center cursor-pointer group-hover:text-cyan">
-                        <p className="">{items.name}</p>
-                        <MdKeyboardArrowUp
-                          className={`text-2xl transition-all ease-in-out duration-300  ${audit ? 'rotate-0' : 'rotate-180'}`}
-                        />
-                      </div>
+                      {items.name}
                     </motion.li>
-                  ) : null;
-                })}
+                  </a>
+                ) : items.type === 'internal' ? (
+                  <Link to={`${items.slug}`} className="w-full h-full" key={i} onClick={handleNav}>
+                    <motion.li
+                      initial={{ x: 100, opacity: 0 }}
+                      animate={navActive ? { x: 0, opacity: 1 } : {}}
+                      transition={{ duration: 0.7, delay: 0.5 * (i * 0.1), ease: [0.16, 0.77, 0.47, 0.97] }}
+                      className={`border-t-[1px] border-white/10 py-5 ${items.name === 'faq' ? 'border-b-[1px]' : ''} `}
+                    >
+                      {items.name}
+                    </motion.li>
+                  </Link>
+                ) : items.name === 'audit' ? (
+                  <motion.li
+                    initial={{ x: 100, opacity: 0 }}
+                    animate={navActive ? { x: 0, opacity: 1 } : {}}
+                    transition={{ duration: 0.7, delay: 0.5 * (i * 0.1), ease: [0.16, 0.77, 0.47, 0.97] }}
+                    className={`border-t-[1px] border-white/10 py-5 group`}
+                    onClick={handleAudit}
+                    key={i}
+                  >
+                    <div className="w-full flex justify-between items-center cursor-pointer group-hover:text-cyan">
+                      <p className="">{items.name}</p>
+                      <MdKeyboardArrowUp
+                        className={`text-2xl transition-all ease-in-out duration-300  ${audit ? 'rotate-0' : 'rotate-180'}`}
+                      />
+                    </div>
+                  </motion.li>
+                ) : null;
+              })
+              : appNavMobile.map((items, i) => {
+                return items.type === 'external' ? (
+                  <a href={items.slug} target="_blank" rel="noopener noreferrer" className="w-full h-full" key={i}>
+                    <motion.li
+                      initial={{ x: 100, opacity: 0 }}
+                      animate={navActive ? { x: 0, opacity: 1 } : {}}
+                      transition={{ duration: 0.7, delay: 0.5 * (i * 0.1), ease: [0.16, 0.77, 0.47, 0.97] }}
+                      className={`border-t-[1px] border-white/10 py-5 ${items.name === 'faq' ? 'border-b-[1px]' : ''} `}
+                    >
+                      {items.name}
+                    </motion.li>
+                  </a>
+                ) : items.type === 'internal' ? (
+                  <Link to={`${items.slug}`} className="w-full h-full" key={i} onClick={handleNav}>
+                    <motion.li
+                      initial={{ x: 100, opacity: 0 }}
+                      animate={navActive ? { x: 0, opacity: 1 } : {}}
+                      transition={{ duration: 0.7, delay: 0.5 * (i * 0.1), ease: [0.16, 0.77, 0.47, 0.97] }}
+                      className={`border-t-[1px] border-white/10 py-5 ${items.name === 'faq' ? 'border-b-[1px]' : ''} `}
+                    >
+                      {items.name}
+                    </motion.li>
+                  </Link>
+                ) : items.name === 'audit' ? (
+                  <motion.li
+                    initial={{ x: 100, opacity: 0 }}
+                    animate={navActive ? { x: 0, opacity: 1 } : {}}
+                    transition={{ duration: 0.7, delay: 0.5 * (i * 0.1), ease: [0.16, 0.77, 0.47, 0.97] }}
+                    className={`border-t-[1px] border-white/10 py-5 group`}
+                    onClick={handleAudit}
+                    key={i}
+                  >
+                    <div className="w-full flex justify-between items-center cursor-pointer group-hover:text-cyan">
+                      <p className="">{items.name}</p>
+                      <MdKeyboardArrowUp
+                        className={`text-2xl transition-all ease-in-out duration-300  ${audit ? 'rotate-0' : 'rotate-180'}`}
+                      />
+                    </div>
+                  </motion.li>
+                ) : null;
+              })}
           </ul>
         </div>
       </nav>
@@ -345,47 +339,47 @@ const Nav: React.FC = () => {
           <ul className="font-secondary font-semibold text-sm uppercase items-center gap-x-12 text-white xl:flex hidden">
             {subdomain !== 'app' && subdomain !== 'test'
               ? navList.map((items, i) => {
-                  return items.type === 'external' ? (
-                    <Link to={items.slug} target="_blank" rel="noopener noreferrer" className="" key={i}>
-                      <li className="cursor-pointer" key={i}>
-                        {items.name}
-                      </li>
-                    </Link>
-                  ) : (
-                    <Link to={items.slug} className="" key={i}>
-                      <li
-                        className={clsx(
-                          'cursor-pointer hover:text-[#0ED4FF]',
-                          items.paths?.includes(pathname) && 'text-[#0ED4FF]',
-                        )}
-                        key={i}
-                      >
-                        {items.name}
-                      </li>
-                    </Link>
-                  );
-                })
+                return items.type === 'external' ? (
+                  <Link to={items.slug} target="_blank" rel="noopener noreferrer" className="" key={i}>
+                    <li className="cursor-pointer" key={i}>
+                      {items.name}
+                    </li>
+                  </Link>
+                ) : (
+                  <Link to={items.slug} className="" key={i}>
+                    <li
+                      className={clsx(
+                        'cursor-pointer hover:text-[#0ED4FF]',
+                        items.paths?.includes(pathname) && 'text-[#0ED4FF]',
+                      )}
+                      key={i}
+                    >
+                      {items.name}
+                    </li>
+                  </Link>
+                );
+              })
               : appNavList.map((items, i) => {
-                  return items.type === 'external' ? (
-                    <Link to={items.slug} target="_blank" rel="noopener noreferrer" className="" key={i}>
-                      <li className="cursor-pointer" key={i}>
-                        {items.name}
-                      </li>
-                    </Link>
-                  ) : (
-                    <Link to={items.slug} className="" key={i}>
-                      <li
-                        className={clsx(
-                          'cursor-pointer hover:text-[#0ED4FF]',
-                          items.paths?.includes(pathname) && 'text-[#0ED4FF]',
-                        )}
-                        key={i}
-                      >
-                        {items.name}
-                      </li>
-                    </Link>
-                  );
-                })}
+                return items.type === 'external' ? (
+                  <Link to={items.slug} target="_blank" rel="noopener noreferrer" className="" key={i}>
+                    <li className="cursor-pointer" key={i}>
+                      {items.name}
+                    </li>
+                  </Link>
+                ) : (
+                  <Link to={items.slug} className="" key={i}>
+                    <li
+                      className={clsx(
+                        'cursor-pointer hover:text-[#0ED4FF]',
+                        items.paths?.includes(pathname) && 'text-[#0ED4FF]',
+                      )}
+                      key={i}
+                    >
+                      {items.name}
+                    </li>
+                  </Link>
+                );
+              })}
           </ul>
 
           <div className="flex items-center gap-x-8 relative">
@@ -393,19 +387,6 @@ const Nav: React.FC = () => {
               <div className="w-8 h-[3px] bg-white"></div>
               <div className="w-6 h-[3px] bg-white"></div>
             </button>
-
-            {/* <button
-              className={` flex-col items-end gap-y-3 xl:flex hidden transition-all ease-in-out duration-300 ${navDesktopActive ? 'rotate-[360deg]' : 'rotate-0'}`}
-              onClick={handleNavDesktop}
-            >
-              <div
-                className={` transition-all ease-in-out duration-300 ${navDesktopActive ? 'bg-cyan rotate-[-45deg] w-8 translate-y-[9px] h-[3px]' : 'w-8 h-[3px] bg-white'}`}
-              ></div>
-              <div
-                className={` transition-all ease-in-out duration-300  ${navDesktopActive ? 'bg-cyan rotate-[45deg] w-8 h-[3px] -translate-y-[6px]' : 'w-6 h-[3px] bg-white'}`}
-              ></div>
-            </button> */}
-
             <div
               className={`w-[16rem] h-[23rem] clipped bg-bl absolute z-10 top-[3.2rem] transition-height ease-in-out duration-300  -left-[14rem] ${navDesktopActive ? 'md:max-h-[23rem] max-h-[0rem]' : 'max-h-0'}`}
             >
@@ -463,16 +444,11 @@ const Nav: React.FC = () => {
                 </div>
               </div>
             </div>
-            <Link
-              to="/create-id"
-              target={!isApp ? `_blank` : ''}
-            >
-              <div className="input-box">
-                <div className="uppercase leading-normal font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-[#9586FF] to-[#0ED4FF] transition-colors ease-in-out duration-300">
-                  Login Passport
-                </div>
+            {address ? <span className='text-xl font-bold text-cyan'>{trimAddress(address)}</span> : <button className="input-box" onClick={loginBtnClickHandler}>
+              <div className="uppercase leading-normal font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-[#9586FF] to-[#0ED4FF] transition-colors ease-in-out duration-300">
+                Login Passport
               </div>
-            </Link>
+            </button>}
           </div>
         </div>
 
