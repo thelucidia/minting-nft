@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useAccount, useConnect, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 import { ConnectWalletButton } from "../components/elements/ConnectWalletButton";
 import { trimAddress } from "../utils/helper";
 import NonTransferableNFTAbi from '../abis/NonTransferableNFT.json';
+import LucidiaToast from "../components/elements/LucidiaTost";
 
 const PharaohCourse: React.FC = () => {
   const { connectors, connect } = useConnect();
@@ -15,6 +17,7 @@ const PharaohCourse: React.FC = () => {
 
   useEffect(() => {
     if (isSuccess) {
+      toast(<LucidiaToast message="Successfully Minted" />);
       navigate("/lucidia-notes");
     }
   }, [isSuccess]);

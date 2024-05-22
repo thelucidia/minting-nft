@@ -1,5 +1,6 @@
 import React, { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 const Nav = lazy(() => import('./components/layouts/Nav'));
 const Footer = lazy(() => import('./components/layouts/Footer'));
@@ -17,6 +18,8 @@ import UserInfo from './components/elements/UserInfo';
 import Minting from './pages/Minting';
 import PharaohCourse from './pages/PharaohCourse';
 import LucidiaNotes from './pages/LucidiaNotes';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 // let web3: any;
 
@@ -48,8 +51,15 @@ const App: React.FC = () => {
   return (
     <section className="w-full h-full overflow-hidden bg-bg mx-auto">
       <Nav />
-        <BaseRoutes />
+      <BaseRoutes />
       {isFooter && <Footer />}
+      <ToastContainer position="top-right"
+        autoClose={5000}
+        hideProgressBar={true}
+        closeOnClick
+        pauseOnHover
+        draggable
+        pauseOnFocusLoss />
     </section>
   );
 };
