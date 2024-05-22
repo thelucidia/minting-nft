@@ -1,5 +1,7 @@
 import React, { ReactNode, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import LucidiaToast from "./LucidiaTost";
 
 interface Iitem {
   link: string,
@@ -20,12 +22,12 @@ const Media: React.FC<MediaProps> = ({ item, title, content, inputPlaceholder, b
   const [username, setUsername] = useState('');
   const checkBtnClickHandler = async () => {
     if (!username) {
-      console.log("username should be required!");
+      toast(<LucidiaToast message="username should be required!" />);
       return;
     }
     const status = await check(username);
     if (!status) {
-      console.log("You are not a member of our community!");
+      toast(<LucidiaToast message="You are not a member of our community!" />);
     }
     setJoined(status);
   }
