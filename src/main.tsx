@@ -2,22 +2,18 @@ import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
-import { MetaMaskProvider } from '@metamask/sdk-react';
+import { WagmiProvider } from 'wagmi';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { config } from './config/wagmi.ts';
+
+const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <BrowserRouter>
-    <MetaMaskProvider debug={false} sdkOptions={{
-      logging:{
-          developerMode: false,
-        },
-        communicationServerUrl: process.env.REACT_APP_COMM_SERVER_URL,
-        checkInstallationImmediately: false, // This will automatically connect to MetaMask on page load
-        dappMetadata: {
-          name: "Demo React App",
-          url: window.location.host,
-        }
-    }}>
-      <App />
-    </MetaMaskProvider>
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </WagmiProvider>
   </BrowserRouter>,
 );

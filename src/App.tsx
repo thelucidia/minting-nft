@@ -36,15 +36,6 @@ export const BaseRoutes = () => {
       <Route path="/minting" element={<Minting />} />
       <Route path="/pharaoh-course" element={<PharaohCourse />} />
       <Route path="/lucidia-notes" element={<LucidiaNotes />} />
-
-      {/* <Route path="/about" >
-        <Route index element={<About />} />
-        <Route path="/about/team-member" element={<TeamMember />} />
-        <Route path="/about/career" element={<Career />} />
-        <Route path="/about/roadmap" element={<RoadMap />} />
-        <Route path="/about/academy" element={<Academy />} />
-        <Route path="/about/faq" element={<Faq />} />
-      </Route> */}
     </Routes>
   )
 }

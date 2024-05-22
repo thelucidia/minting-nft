@@ -1,28 +1,30 @@
-import React, {useState, useTransition} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosConfig from "../services/axios-config";
 import OtpInput from "react-otp-input";
+import { useAccount } from "wagmi";
+
 
 const CodeAuth: React.FC = () => {
-    // const [isPending, startTransition] = useTransition();
     const navigate = useNavigate();
     const [otp, setOtp] = useState('');
+    const { address } = useAccount();
 
     const checkCode = async () => {
         try {
             console.log("otp: ", otp);
             const userEmail = localStorage.getItem("userEmail");
-            // const response = await axios.post("/user/verify-code", {code: otp, email: userEmail});
-            const response = await axiosConfig.post("/user/verify-code", {code: otp, email: userEmail});
+            const response = await axiosConfig.post("/user/verify-code", { code: otp, email: userEmail, wallet: address });
             console.log("response.data: ", response.data.msg);
-            
+
             if (response.data.msg == "Verification successful") {
+                localStorage.setItem("isUser", new Date().toDateString());
                 navigate("/join-us");
             } else {
                 console.log("Some errors occur.");
             }
 
-        } catch(error) {
+        } catch (error) {
             console.log("Error sending data to the server", error);
         }
     };
@@ -43,7 +45,7 @@ const CodeAuth: React.FC = () => {
                             className="w-full"
                         />
                         <div className="w-full absolute top-0 font-secondary font-semibold py-[20px] text-center bg-no-repeat bg-contain py-10 flex flex-col gap-y-3">
-                            <h1 className="font-primary font-third text-white pt-[100px] leading-[44px] text-center uppercase" style={{fontWeight: 700, fontSize: 36}}>
+                            <h1 className="font-primary font-third text-white pt-[100px] leading-[44px] text-center uppercase" style={{ fontWeight: 700, fontSize: 36 }}>
                                 Authentication code
                             </h1>
                             <div className="mt-11 w-[343px] mx-auto">
@@ -77,7 +79,7 @@ const CodeAuth: React.FC = () => {
                                     <h4 className="font-bold font-secondary">Confirm</h4>
                                 </button>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
