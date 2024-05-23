@@ -48,7 +48,7 @@ const Media: React.FC<MediaProps> = ({ item, title, content, inputPlaceholder, b
           <input className="border-0 outline-none font-semibold w-full text-[12px] py-[10px] px-2 bg-transparent font-secondary text-white" placeholder={inputPlaceholder} value={username} onChange={(e) => setUsername(e.target.value)} />
           <button className="text-center px-4 bg-[#0ED4FF] rounded-[8px]" onClick={checkBtnClickHandler}>Check</button>
         </div>
-        {joined ? <span>JOINED</span> : <Link to={item.link}>
+        {joined ? <span>JOINED</span> : <Link to={item.link} target="_blank">
           <button className="rounded-[12px] bg-cyan hover:bg-white py-[13px] w-full text-center bg-no-repeat bg-contain uppercase text-black text-[12px]">{buttonValue}</button>
         </Link>}
       </div>
