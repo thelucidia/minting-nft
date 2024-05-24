@@ -15,7 +15,7 @@ const Landing: React.FC = () => {
       transition={{ duration: 1.2 }}
       className="bg-black"
     >
-      <section className="w-full h-auto overflow-hidden bg-bg">
+      <section className="w-full h-auto bg-bg">
         <Banner />
         <Airdrop />
         <Benefits />
