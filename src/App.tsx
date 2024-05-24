@@ -48,7 +48,7 @@ const App: React.FC = () => {
   const isFooter = pathname === '/';
 
   return (
-    <section className="relative w-full h-full overflow-hidden mx-auto">
+    <section className="relative w-full h-full overflow-hidden bg-black mx-auto">
       <Nav />
       <BaseRoutes />
       {isFooter && <Footer />}

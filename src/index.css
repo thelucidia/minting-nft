@@ -131,7 +131,6 @@ body {
 
 .time {
   font-weight: 800;
-  margin-right: 68px;
   font-size: 30px;
   flex-direction: column;
   gap: 10px;

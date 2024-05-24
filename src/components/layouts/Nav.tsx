@@ -40,7 +40,7 @@ const Nav: React.FC = () => {
       />
       <div className="w-full max-w-screen-2xl m-auto flex justify-between items-center">
         <Link to="/">
-          <img src="/hero/newlogo.png" alt="Logo" className="w-52" />
+          <img src={width < 640 ? '/assets/icon.png' : '/hero/newlogo.png'} alt="Logo" className="w-16 sm:w-52" />
         </Link>
         {width < MOBILE_BREAKPOINT && <Hamburger toggled={isHamburgerOpen} toggle={setIsHamburgerOpen} color="white" />}
         {isHamburgerOpen && (
