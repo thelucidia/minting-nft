@@ -18,8 +18,8 @@ const Landing: React.FC = () => {
       <section className="w-full h-auto bg-bg">
         <Banner />
         <Airdrop />
-        {/* <Benefits />
-        <Video /> */}
+        <Benefits />
+        <Video />
       </section>
     </motion.div>
   );
