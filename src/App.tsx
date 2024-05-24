@@ -6,10 +6,10 @@ const Nav = lazy(() => import('./components/layouts/Nav'));
 const Footer = lazy(() => import('./components/layouts/Footer'));
 
 import Landing from './pages/Landing';
-import CreateId from "./pages/CreateId";
+import CreateId from './pages/CreateId';
 import ConnectWallet from './pages/ConnectWallet';
 import VerifyEmail from './pages/VerifyEmail';
-import CodeAuth from "./pages/CodeAuth";
+import CodeAuth from './pages/CodeAuth';
 import JoinUs from './pages/JoinUs';
 import FinishAssessment from './pages/FinishAssessment';
 import BeLucidian from './pages/BeLucidian';
@@ -40,26 +40,27 @@ export const BaseRoutes = () => {
       <Route path="/pharaoh-course" element={<PharaohCourse />} />
       <Route path="/lucidia-notes" element={<LucidiaNotes />} />
     </Routes>
-  )
-}
+  );
+};
 
 const App: React.FC = () => {
-
   const pathname = window.location.pathname;
-  const isFooter = pathname === "/";
+  const isFooter = pathname === '/';
 
   return (
-    <section className="w-full h-full overflow-hidden bg-bg mx-auto">
+    <section className="relative w-full h-full overflow-hidden mx-auto">
       <Nav />
       <BaseRoutes />
       {isFooter && <Footer />}
-      <ToastContainer position="top-right"
+      <ToastContainer
+        position="top-right"
         autoClose={5000}
         hideProgressBar={true}
         closeOnClick
         pauseOnHover
         draggable
-        pauseOnFocusLoss />
+        pauseOnFocusLoss
+      />
     </section>
   );
 };

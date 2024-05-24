@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import Banner from "../views/home/Banner";
-import Benefits from "../views/home/Benefits";
-import Airdrop from "../views/home/Airdrop";
+import Banner from '../views/home/Banner';
+import Benefits from '../views/home/Benefits';
+import Airdrop from '../views/home/Airdrop';
 import Video from '../views/home/Video';
 
 const Landing: React.FC = () => {

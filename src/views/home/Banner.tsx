@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from 'react'
-
-import Slogan from "../../components/elements/Slogan";
-
-// import clsx from 'clsx';
+import React, { useEffect, useState } from 'react';
+import Slogan from '../../components/elements/Slogan';
 
 const Banner: React.FC = () => {
   const [trueLoading, setTrueLoading] = useState(true);

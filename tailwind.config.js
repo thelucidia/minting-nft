@@ -32,11 +32,13 @@ export default {
       screens: {
         xs: '520px', // Example custom breakpoint at 400px
         customXl: '1420px',
+        '3xl': '1792px',
       },
       backgroundImage: {
         'gradient-to-b': "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 99.82%)",
         'custom-gradient': "linear-gradient(180deg, rgba(23, 1, 48, 0.1), rgba(23, 1, 48, 0.1)), linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, #000000 99.82%)",
-        'step-gradient': 'linear-gradient(90deg, #193F47 33.5%, #0ED4FF 100%)'
+        'step-gradient': 'linear-gradient(90deg, #193F47 33.5%, #0ED4FF 100%)',
+        'hamburger-menu': "url('assets/hamburger/HamburgerMenuBg.png')"
       },
       borderRadius: {
         'custom': '20px',
