@@ -9,6 +9,11 @@ export default {
         thrid: ['Ghost Clan Italic'],
         forth: ['Call of Ops Duty II'],
       },
+      fontSize: {
+        '16xl': '220px',
+        '18xl': '256px',
+        '20xl': '292px'
+      },
       colors: {
         bl: '#0ED4FF',
         cyan: '#0ED4FF',
