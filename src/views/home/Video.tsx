@@ -1,13 +1,9 @@
-import { useState, startTransition } from 'react';
+import { startTransition } from 'react';
 
 const Video = () => {
-  const [trueLoading, setTrueLoading] = useState(true);
-
   const handleTrue = () => {
     startTransition(() => {
-      setTimeout(() => {
-        setTrueLoading(false);
-      }, 1500);
+      setTimeout(() => {}, 1500);
     });
   };
 
