@@ -10,11 +10,11 @@ interface BenefitProps {
 const Benefit: React.FC<BenefitProps> = ({ className, style, prefix, content }) => {
   return (
     <div
-      className={`${className || ''}relative flex items-center px-4 py-8 md:px-6 md:py-12 text-center border-t-4 border-b-4 border-solid border-[#F6F6F6] rounded-[74px] max-w-80 min-h-80`}
+      className={`${className || ''}relative flex items-center px-4 py-4 md:px-6 md:py-12 text-center border-t-4 border-b-4 border-solid border-[#F6F6F6] rounded-[74px] w-full sm:w-2/3 xd:max-w-80 min-h-72 xd:min-h-80`}
       style={style}
     >
       <h2
-        className="absolute top-40 left-[-40px] z-0 font-primary font-semibold text-16xl md:text-18xl leading-[36px]"
+        className="absolute left-4 xd:-left-8 z-0 font-primary font-semibold text-14xl sm:text-16xl md:text-18xl leading-[36px]"
         style={{
           color: 'transparent',
           WebkitTextFillColor: 'transparent',
@@ -24,7 +24,7 @@ const Benefit: React.FC<BenefitProps> = ({ className, style, prefix, content }) 
         {prefix}
       </h2>
       <h5
-        className="pl-16 font-semibold text-white text-primary text-3xl md:text-4xl text-start"
+        className="pl-16 font-semibold text-white text-primary text-2xl sm:text-3xl md:text-4xl text-start"
         style={{ letterSpacing: '1px' }}
       >
         {content}

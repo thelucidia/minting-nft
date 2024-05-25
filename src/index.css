@@ -171,12 +171,6 @@ body {
   margin-top: 30px;
 }
 
-.video {
-  background-image: url("/hero/darkly-atmospheric-retail-environment-rendering2 1.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .video .video-discription {
   width: 35%;
   font-size: large;
@@ -214,7 +208,6 @@ body {
 }
 
 .gradient-box {
-  
   display: flex;
   align-items: center;
   margin: auto;
