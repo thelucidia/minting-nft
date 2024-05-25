@@ -10,6 +10,7 @@ export default {
         forth: ['Call of Ops Duty II'],
       },
       fontSize: {
+        '14xl': '192px',
         '16xl': '220px',
         '18xl': '256px',
         '20xl': '292px'
@@ -37,6 +38,7 @@ export default {
       screens: {
         xs: '520px', // Example custom breakpoint at 400px
         customXl: '1420px',
+        'xd': '840px',
         '3xl': '1792px',
       },
       backgroundImage: {
