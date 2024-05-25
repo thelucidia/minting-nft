@@ -231,7 +231,7 @@ body {
 }
 
 .input-box {
-  padding: 0.5rem;
+  padding: 4px;
   border: double 3px transparent;
   border-radius: 20px;
   background-image: linear-gradient(black, black), 
@@ -239,13 +239,8 @@ body {
   background-origin: border-box;
   background-clip: padding-box, border-box;
   outline: none;
-  font-size: 14px;
+  font-size: 20px;
   padding: 12px 50px;
-}
-
-.input-box:hover {
-  background-image: linear-gradient(white, white), 
-                    linear-gradient(to right, #000000, #087F99);
 }
 
 .minting-banner {

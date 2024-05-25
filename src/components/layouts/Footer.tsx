@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Footer: React.FC = () => {
-
   const general = [
     {
       title: 'PRIVACY POLICY',
@@ -43,10 +42,9 @@ const Footer: React.FC = () => {
         alt="navline"
         className="sm:mt-20 mx-auto w-full object-cover relative left-0 right-0 opacity-70 sm:block hidden"
       />
-
-      <div className="container px-48 mx-auto w-full text-white sm:mt-28 grid lg:grid-cols-2 md:grid-cols-1 gap-x-28 gap-y-10 sm:border-t-0 border-t-[1.5px] mt-10 border-white/20">
+      <div className="px-20 mx-auto w-full text-white sm:mt-28 grid lg:grid-cols-2 md:grid-cols-1 gap-x-28 gap-y-10 sm:border-t-0 border-t-[1.5px] mt-10 border-white/20 max-w-screen-xl">
         <div className="font-primary flex gap-x-20 sm:flex-row flex-col gap-y-8 mt-11 lg:mt-0 sm:items-center items-start lg:order-first md:order-last order-last">
-          <div className="">
+          <div className="flex flex-col">
             <h2 className="font-semibold text-[22px]">GENERAL</h2>
             <ul className="flex flex-col gap-y-2 mt-8">
               {general.map((items, i) => {
@@ -69,7 +67,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          <div className="">
+          <div className="flex flex-col">
             <h2 className="font-semibold text-[22px]">COMPANY</h2>
             <ul className="flex flex-col gap-y-2 mt-8">
               {company.map((items, i) => {
@@ -97,33 +95,13 @@ const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col gap-y-3 max-w-[540px] font-primary sm:pt-0 pt-20">
-          <h3 className="text-[22px] font-semibold pb-5">
-            Register to get the opportunity to win an interesting reward in the community!
-          </h3>
-          <div>
-            <input
-              type="text"
-              className="input-box w-full"
-              placeholder="Full name"
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              className="input-box w-full"
-              placeholder="E-mail"
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              className="input-box w-full"
-              placeholder="Discord"
-            />
-          </div>
-          <button className="bg-[#0ED4FF] rounded-[20px] px-[220px] py-[23px] hover:bg-white">
-            <h4 className="text-black text-secondary text-[20px] leading-[17.5px] font-bold">subscribe</h4>
+        <div className="flex flex-col gap-y-3 font-primary sm:pt-0 pt-10">
+          <p className="text-2xl font-semibold pb-5 uppercase">Join The Community</p>
+          <input type="text" className="input-box w-full" placeholder="Full name" />
+          <input type="text" className="input-box w-full" placeholder="E-mail" />
+          <input type="text" className="input-box w-full" placeholder="Discord" />
+          <button className="bg-[#0ED4FF] hover:bg-[#4dbcd4] rounded-[20px] py-4 text-black font-bold text-xl text-center w-full">
+            Subscribe
           </button>
         </div>
       </div>
@@ -134,7 +112,7 @@ const Footer: React.FC = () => {
         className="mt-10 mx-auto w-full object-cover relative left-0 right-0 opacity-70 sm:block hidden"
       />
 
-      <div className="container mx-auto w-full text-white sm:mt-16 flex justify-between items-center px-5 sm:border-t-0 border-t-[1.5px] mt-20 pt-12 sm:pt-0 border-white/20">
+      <div className="container mx-auto w-full text-white sm:mt-16 flex justify-between items-center px-5 sm:border-t-0 border-t-[1.5px] mt-20 pt-12 sm:pt-0 border-white/20 max-w-screen-xl">
         <div className="">
           <h3 className="font-secondary text-sm font-semibold uppercase">© Lucidia 2024 | All rights reserved.</h3>
           <p className="text-[12px] text-footergry font-secondary mt-2">

@@ -21,7 +21,7 @@ const Video = () => {
             autoPlay
             muted
             loop
-            src="/videos/curseof.mp4"
+            src="/videos/curseof.mp41"
             preload={'auto'}
             onLoadedData={handleTrue}
             playsInline
