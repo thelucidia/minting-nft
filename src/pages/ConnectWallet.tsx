@@ -1,38 +1,34 @@
-import React, { useMemo } from "react";
-import { Connector, useAccount, useConnect } from "wagmi";
-import { ConnectWalletButton } from "../components/elements/ConnectWalletButton";
+import React, { useMemo } from 'react';
+import { Connector, useAccount, useConnect } from 'wagmi';
+import { ConnectWalletButton } from '../components/elements/ConnectWalletButton';
 
 const ConnectWallet: React.FC = () => {
   const { connectors, connect } = useConnect();
   const { connector: connectedConnector } = useAccount();
+
   const sortedConnectors = useMemo(() => {
     const uniqueObjects: { [key: string]: Connector } = {};
-    connectors.forEach(connector => { uniqueObjects[connector.name] = connector });
+    connectors.forEach((connector) => {
+      uniqueObjects[connector.name] = connector;
+    });
     return Object.values(uniqueObjects);
   }, [connectors]);
 
   return (
-    <section className="w-full h-screen text-white relative mb-[605px] flex justify-center">
-      <img
-        src="/token/Vector.png"
-        alt="Lucidian ID Creation"
-        className="w-full h-[1344px]"
-      />
-      <div className="container max-w-[700px] mx-auto flex flex-row gap-x-5 absolute top-[280px] z-30">
-        <div className="w-full h-auto">
-          <div>
-            <img
-              src="/token/Frame 24787 (1).png"
-              alt="borderBoxing"
-              className="w-full"
+    <section className="relative flex items-center justify-center w-full h-screen p-4 bg-[url('/token/Vector.png')] bg-full bg-no-repeat">
+      <div className="flex flex-col items-center justify-center gap-y-6 px-6 md:px-8 py-14 md:py-16 bg-[url('/assets/frames/frame1_mobile.png')] md:bg-[url('/assets/frames/frame1.png')] bg-full bg-no-repeat md:max-w-screen-sm">
+        <h1 className="font-primary font-third text-white text-center text-4xl font-semibold uppercase">
+          Connect Your Wallet
+        </h1>
+        <div className="flex flex-col">
+          {sortedConnectors.map((connector) => (
+            <ConnectWalletButton
+              key={connector.uid}
+              connected={connector.name === connectedConnector?.name}
+              connector={connector}
+              click={() => connect({ connector })}
             />
-            <div className="w-full absolute top-0 font-secondary font-semibold py-[20px] text-center bg-no-repeat bg-contain py-10 flex flex-col gap-y-3">
-              <h1 className="font-primary font-third text-white mt-[105px] leading-[44px] text-center uppercase" style={{ fontWeight: 700, fontSize: 36 }}>
-                Connect Your Wallet
-              </h1>
-              {sortedConnectors.map((connector) => <ConnectWalletButton key={connector.uid} connected={connector.name === connectedConnector?.name} connector={connector} click={() => connect({ connector })} />)}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
