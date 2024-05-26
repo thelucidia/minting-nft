@@ -2,6 +2,9 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    backgroundSize: {
+      'full': '100% 100%',
+    },
     extend: {
       fontFamily: {
         primary: ['Clash'],

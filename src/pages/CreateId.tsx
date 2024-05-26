@@ -2,57 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Login: React.FC = () => {
-
   return (
-    <section className="w-full h-screen text-white relative mb-[605px] flex justify-center">
-      <img
-        src="/token/Vector.png"
-        alt="Lucidian ID Creation"
-        className="w-full h-[1344px]"
-      />
-      <div className="container max-w-[700px] mx-auto flex flex-row gap-x-5 absolute top-[280px] z-30">
-        <div className="w-full h-auto">
-          <div>
-            <img
-                src="/token/Frame 24787.png"
-                alt="borderBoxing"
-                className="w-full"
-            />
-            <div className="w-full absolute top-0 font-secondary font-semibold py-[20px] text-center bg-no-repeat bg-contain py-10 flex flex-col gap-y-3">
-                <h1 className="font-primary font-third text-white pt-[40px] leading-[44px] text-center uppercase" style={{fontWeight: 700, fontSize: 36}}>
-                    GET YOUR LUCIDIAN ID
-                </h1>
-                <h6 className="font-second font-third text-white text-base text-center leading-[24px] mt-3">
-                    You can only have one Lucidian ID
-                </h6>
-                <div className="flex justify-center">
-                    <div className="mr-[30px]">
-                        <img src="/token/Group 625215.png" alt="zombie2" className="h-[200px] w-[200px]" />
-                    </div>
-                    <div className="text-white font-primary flex items-center">
-                        <div className="mt-13">
-                            <h2 className="text-lg">How can I get my lucidianid?</h2>
-                            <div className="flex items-center mt-4">
-                                <div className="rounded-full w-3 h-3 bg-cyan mr-[6px]"></div>
-                                <div>Connect your wallet</div>
-                            </div>
-                            <div className="flex items-center mt-3">
-                                <div className="rounded-full w-3 h-3 bg-cyan mr-[6px]"></div>
-                                <div>Generate your Lucidian ID</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="mt-[30px]">
-                  <Link to="/connect-wallet">
-                    <button className="rounded-[12px] bg-cyan hover:bg-white py-[13px] px-[87px] text-center bg-no-repeat bg-contain uppercase text-black">
-                        <h4 className="font-bold font-secondary">CONTINUE TO GENERATE</h4>
-                    </button>
-                  </Link>
-                </div>
+    <section className="relative flex items-center justify-center w-full h-screen p-4 bg-[url('/token/Vector.png')] bg-contain xl:bg-cover bg-no-repeat">
+      <div className="flex flex-col items-center justify-center gap-y-6 p-6 md:p-10 bg-[url('/assets/frames/frame1_mobile.png')] md:bg-[url('/assets/frames/frame1.png')] bg-full bg-no-repeat md:max-w-screen-sm">
+        <p className="font-primary font-semibold text-white text-center text-4xl uppercase">Get your Lucidian ID</p>
+        <p className="font-second font-thrid text-white text-base text-center">You can only have one Lucidian ID</p>
+        <div className="flex flex-col md:flex-row items-center gap-6">
+          <img src="/token/Group 625215.png" alt="zombie2" className="w-52 h-52" />
+          <div className="flex flex-col items-start gap-3 text-white font-primary">
+            <p className="text-lg font-semibold uppercase">how can I get my Lucidian ID?</p>
+            <div className="flex flex-row items-center gap-x-2">
+              <span className="rounded-full w-3 h-3 bg-cyan" />
+              <span>Connect your wallet.</span>
+            </div>
+            <div className="flex flex-row items-center gap-x-2">
+              <span className="rounded-full w-3 h-3 bg-cyan" />
+              <span>Generate your Lucidian ID</span>
             </div>
           </div>
         </div>
+        <Link to="/connect-wallet">
+          <button className="px-6 py-3 w-full max-w-80 rounded-xl font-bold font-secondary text-white bg-cyan">
+            CONTINUE TO GENERATE
+          </button>
+        </Link>
       </div>
     </section>
   );

@@ -15,7 +15,7 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
 
   return (
     <div
-      className={`${className || ''} flex flex-col justify-center gap-4 p-8 text-xl font-semibold text-white/80 bg-transparent bg-hamburger-menu bg-no-repeat bg-cover min-w-[310px] z-50`}
+      className={`${className || ''} flex flex-col justify-center gap-4 p-8 text-xl font-semibold text-white/80 bg-transparent bg-hamburger-menu bg-full bg-no-repeat min-w-[310px] z-50`}
       style={style}
     >
       {!address && (
