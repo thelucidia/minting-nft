@@ -1,101 +1,77 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { LiaTelegramPlane } from 'react-icons/lia';
-import { TfiTwitter } from 'react-icons/tfi';
+import { BsTwitterX } from 'react-icons/bs';
 import { RxDiscordLogo } from 'react-icons/rx';
 
-import Media from "../components/elements/Media";
-import { checkFollowingTwitter, checkMemberForDiscord, checkMemberForTelegram } from "../utils/api";
+import Media from '../components/elements/Media';
+import { checkFollowingTwitter, checkMemberForDiscord, checkMemberForTelegram } from '../utils/api';
 
 const JoinUs: React.FC = () => {
-
   const items = [
     {
-      sort: "Telegram",
+      sort: 'Telegram',
       item: {
         link: 'https://t.me/Lucidia_io',
-        icon: <LiaTelegramPlane />
+        icon: <LiaTelegramPlane />,
       },
-      title: "Join Our Telegram",
-      content: "Please submit the proof of task 1 by entering the telegram username below",
-      inputPlaceholder: "Enter your telegram Username here",
-      buttonValue: "Join Telegram",
+      title: 'Join Our Telegram',
+      content: 'Please submit the proof of task 1 by entering the telegram username below',
+      inputPlaceholder: 'Enter your telegram Username here',
+      buttonValue: 'Join Telegram',
       check: checkMemberForTelegram,
     },
     {
-      sort: "Twitter",
+      sort: 'Twitter',
       item: {
         link: 'https://twitter.com/lucidia_io',
-        icon: <TfiTwitter />
+        icon: <BsTwitterX />,
       },
-      title: "Twitter Follow & Retweet",
-      content: "After that, please enter twitter Username below",
-      inputPlaceholder: "Enter your twitter Username here",
-      buttonValue: "Follow and Submit",
+      title: 'Twitter Follow & Retweet',
+      content: 'After that, please enter twitter Username below',
+      inputPlaceholder: 'Enter your twitter Username here',
+      buttonValue: 'Follow and Submit',
       check: checkFollowingTwitter,
     },
     {
-      sort: "Discord",
+      sort: 'Discord',
       item: {
         link: 'https://discord.gg/lucidia',
-        icon: <RxDiscordLogo />
+        icon: <RxDiscordLogo />,
       },
-      title: "Join Us on Discord",
-      content: "After that, please enter join Discord below",
-      inputPlaceholder: "Enter your Discord Username here",
-      buttonValue: "Join Discord",
+      title: 'Join Us on Discord',
+      content: 'After that, please enter join Discord below',
+      inputPlaceholder: 'Enter your Discord Username here',
+      buttonValue: 'Join Discord',
       check: checkMemberForDiscord,
-    }
+    },
   ];
 
   return (
-    <section className="w-full h-screen text-white relative mb-[605px] flex justify-center">
-      <img
-        src="/token/Vector.png"
-        alt="Lucidian ID Creation"
-        className="w-full h-[1344px]"
-      />
-      <div className="container lg:max-w-[1300px] mx-auto flex flex-row gap-x-5 absolute top-[280px] z-30">
-        <div className="w-full h-auto">
-          <div>
-            <img
-              src="/token/Frame 24787 (1).png"
-              alt="borderBoxing"
-              className="w-full h-[636px]"
+    <section className="relative flex items-center justify-center w-full h-auto lg:h-screen p-4 text-white bg-[url('/token/Vector.png')] bg-contain xl:bg-cover bg-no-repeat">
+      <div className="flex flex-col items-center justify-center gap-y-6 p-6 xl:p-10 mt-32 bg-[url('/assets/frames/frame1_mobile.png')] md:bg-[url('/assets/frames/frame1.png')] bg-full bg-no-repeat">
+        <p className="font-primary font-semibold text-white text-center text-4xl uppercase">Join us our social media</p>
+        <div className="flex flex-col lg:flex-row gap-8">
+          {items.map((item, idx) => (
+            <Media
+              key={idx}
+              item={item.item}
+              title={item.title}
+              content={item.content}
+              inputPlaceholder={item.inputPlaceholder}
+              buttonValue={item.buttonValue}
+              check={item.check}
             />
-            <div className="w-full absolute top-0 font-secondary font-semibold py-[20px] text-center bg-no-repeat bg-contain py-10 flex flex-col gap-y-3">
-              <h1 className="font-primary font-third text-white pt-[100px] leading-[44px] text-center uppercase" style={{ fontWeight: 700, fontSize: 36 }}>
-                Join us our social media
-              </h1>
-              <div className="mt-11 mx-auto grid lg:grid-cols-3 gap-y-2 gap-x-8 sm:grid-cols-1">
-                {
-                  items.map((item, idx) => (
-                    <Media
-                      key={idx}
-                      item={item.item}
-                      title={item.title}
-                      content={item.content}
-                      inputPlaceholder={item.inputPlaceholder}
-                      buttonValue={item.buttonValue}
-                      check={item.check}
-                    />
-                  ))
-                }
-              </div>
-              <div className="mt-[42px]">
-                <Link to="/finish-assessment">
-                  <button className="rounded-[12px] bg-[#454545] hover:bg-white py-[13px] px-[140px] text-center bg-no-repeat bg-contain uppercase text-black">
-                    <h4 className="font-bold font-secondary">confirm</h4>
-                  </button>
-                </Link>
-                <h6 className="font-second font-third text-[#F6F6F6] text-[18px] text-center leading-[24px] mt-6">
-                  Join all social media <span className="text-[#0ED4FF] hover:cursor-pointer">Act quickly!</span>
-                </h6>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
+        <Link to="/finish-assessment">
+          <button className="rounded-[12px] bg-[#454545] hover:bg-white px-12 py-4 md:min-w-80 text-center font-bold bg-no-repeat bg-contain uppercase text-black">
+            confirm
+          </button>
+        </Link>
+        <p className="text-white text-base text-center">
+          Join all social media <span className="text-[#0ED4FF] hover:cursor-pointer">Act quickly!</span>
+        </p>
       </div>
     </section>
   );
