@@ -31,45 +31,30 @@ const VerifyEmail: React.FC = () => {
   };
 
   return (
-    <section className="w-full h-screen text-white relative mb-[605px] flex justify-center">
-      <img src="/token/Vector.png" alt="Lucidian ID Creation" className="w-full h-[1344px]" />
-      <div className="container max-w-[700px] mx-auto flex flex-row gap-x-5 absolute top-[280px] z-30">
-        <div className="w-full h-auto">
-          <div>
-            <img src="/token/Frame 24787 (1).png" alt="borderBoxing" className="w-full" />
-            <div className="w-full absolute top-0 font-secondary font-semibold py-[20px] text-center bg-no-repeat bg-contain py-10 flex flex-col gap-y-3">
-              <h1
-                className="font-primary font-third text-white pt-[100px] leading-[44px] text-center uppercase"
-                style={{ fontWeight: 700, fontSize: 36 }}
-              >
-                Verify your email
-              </h1>
-              <div className="mt-11 w-[343px] mx-auto">
-                <div className="h-11 clipped2 bg-gradient-to-r from-[#7700FF] to-[#FFFFFF] relative flex items-center scale-x-[-1]">
-                  <div className="absolute bg-black w-[99%] h-[93%] left-0 top-0 right-0 bottom-0 m-auto clipped2"></div>
-                  <input
-                    type="email"
-                    className="px-10 font-primary w-full relative z-10 text-[16px] scale-x-[-1] bg-transparent outline-none"
-                    placeholder="ENTER YOUR EMAIL"
-                    value={email}
-                    onChange={handleInputChange}
-                  />
-                </div>
-                <h6 className="font-second font-third text-white text-base text-left leading-[24px] mt-3">
-                  You will receive a code for authentication on your email.
-                </h6>
-              </div>
-              <div className="mt-[42px]">
-                <button
-                  onClick={sendDataToServer}
-                  className="rounded-[12px] bg-cyan hover:bg-white py-[13px] px-[87px] text-center bg-no-repeat bg-contain uppercase text-black"
-                >
-                  <h4 className="font-bold font-secondary">Send code</h4>
-                </button>
-              </div>
-            </div>
+    <section className="relative flex items-center justify-center w-full h-screen p-4 bg-[url('/token/Vector.png')] bg-contain xl:bg-cover bg-no-repeat">
+      <div className="flex flex-col items-center justify-center gap-y-6 p-6 md:p-10 text-white bg-[url('/assets/frames/frame1_mobile.png')] md:bg-[url('/assets/frames/frame1.png')] bg-full bg-no-repeat md:max-w-screen-sm">
+        <p className="font-primary font-semibold text-white text-center text-4xl uppercase">Verify your email</p>
+        <div className="mt-11 w-full max-w-md mx-auto">
+          <div className="h-11 clipped2 bg-gradient-to-r from-[#7700FF] to-[#FFFFFF] relative flex items-center scale-x-[-1]">
+            <div className="absolute bg-black w-[99%] h-[93%] left-0 top-0 right-0 bottom-0 m-auto clipped2"></div>
+            <input
+              type="email"
+              className="px-10 font-primary w-full relative z-10 text-[16px] scale-x-[-1] bg-transparent outline-none"
+              placeholder="ENTER YOUR EMAIL"
+              value={email}
+              onChange={handleInputChange}
+            />
           </div>
+          <p className="pt-8 text-lg font-semibold uppercase">
+            You will receive a code for authentication on your email.
+          </p>
         </div>
+        <button
+          className="px-6 py-3 w-full max-w-80 rounded-xl font-bold font-secondary text-white bg-cyan"
+          onClick={sendDataToServer}
+        >
+          Send code
+        </button>
       </div>
     </section>
   );

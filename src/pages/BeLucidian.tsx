@@ -1,53 +1,31 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const BeLucidian: React.FC = () => {
+  const navigate = useNavigate();
+  const claimBtnClickHandler = () => {
+    navigate('/');
+  };
 
-	const navigate = useNavigate();
-	const claimBtnClickHandler = () => {
-		navigate("/");
-	}
-
-	return (
-		<section className="w-full h-screen text-white relative mb-[605px] flex justify-center">
-			<img
-				src="/token/Vector.png"
-				alt="Lucidian ID Creation"
-				className="w-full h-[1344px]"
-			/>
-			<div className="container max-w-[700px] mx-auto flex flex-row gap-x-5 absolute top-[280px] z-30">
-				<div className="w-full h-auto">
-					<div>
-						<img
-							src="/token/Frame 24787 (1).png"
-							alt="borderBoxing"
-							className="w-full h-[650px]"
-						/>
-						<div className="w-full absolute top-0 font-secondary font-semibold py-[20px] text-center bg-no-repeat bg-contain flex flex-col gap-y-3">
-							<div>
-								<h1 className="font-primary font-third text-white pt-[40px] leading-[44px] text-center uppercase" style={{ fontWeight: 700, fontSize: 36 }}>
-									You have your Lucidian id
-								</h1>
-							</div>
-							<div className="flex justify-center">
-								<h6 className="font-second w-[400px] font-third text-white text-base text-center leading-[24px] mt-2">
-									Your Lucidian Passport has been generated Your 20,000 Lucid Token Airdrop is here! Click to claim the Airdrop
-								</h6>
-							</div>
-							<div className="flex items-center justify-center">
-								<img src="/token/Group 625215.png" width="300px" alt="zombie2" />
-							</div>
-							<div className="mt-[10px]">
-								<button className="rounded-[12px] bg-cyan hover:bg-white py-[13px] px-[150px] text-center bg-no-repeat bg-contain uppercase text-black" onClick={claimBtnClickHandler}>
-									<h4 className="font-bold font-secondary">Claim</h4>
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+  return (
+    <section className="relative flex items-center justify-center w-full h-screen p-4 text-white bg-[url('/token/Vector.png')] bg-contain xl:bg-cover bg-no-repeat">
+      <div className="flex flex-col items-center justify-center gap-y-6 p-6 xl:p-10 mt-32 bg-[url('/assets/frames/frame1_mobile.png')] md:bg-[url('/assets/frames/frame1.png')] bg-full bg-no-repeat">
+        <p className="font-primary font-semibold text-white text-center text-4xl uppercase">
+          You have your Lucidian id
+        </p>
+        <p className="font-second font-thrid text-white text-base text-center">
+          Your Lucidian Passport has been generated Your 20,000 Lucid Token Airdrop is here! Click to claim the Airdrop
+        </p>
+        <img src="/token/Group 625215.png" width="300px" alt="zombie2" />
+        <button
+          className="rounded-[12px] bg-cyan hover:bg-white py-4 px-12 min-w-80 text-center bg-no-repeat bg-contain uppercase text-black"
+          onClick={claimBtnClickHandler}
+        >
+          <h4 className="font-bold font-secondary">Claim</h4>
+        </button>
+      </div>
+    </section>
+  );
 };
 
 export default BeLucidian;

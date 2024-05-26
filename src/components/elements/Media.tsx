@@ -1,21 +1,21 @@
-import React, { ReactNode, useState } from "react";
-import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import LucidiaToast from "./LucidiaTost";
+import React, { ReactNode, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import LucidiaToast from './LucidiaTost';
 
 interface Iitem {
-  link: string,
-  icon: ReactNode
-};
+  link: string;
+  icon: ReactNode;
+}
 
 interface MediaProps {
-  item: Iitem,
-  title: string,
-  content: string,
-  inputPlaceholder: string,
-  buttonValue: string,
-  check: (username: string) => Promise<boolean>
-};
+  item: Iitem;
+  title: string;
+  content: string;
+  inputPlaceholder: string;
+  buttonValue: string;
+  check: (username: string) => Promise<boolean>;
+}
 
 const Media: React.FC<MediaProps> = ({ item, title, content, inputPlaceholder, buttonValue, check }) => {
   const [joined, setJoined] = useState(false);
@@ -30,10 +30,10 @@ const Media: React.FC<MediaProps> = ({ item, title, content, inputPlaceholder, b
       toast(<LucidiaToast message="You are not a member of our community!" />);
     }
     setJoined(status);
-  }
+  };
 
   return (
-    <section className="w-[300px]">
+    <section className="w-full text-white">
       <div className="flex justify-center h-[70px]">
         <div className="w-[70px] hover:transition-all ease-in-out duration-300 hover:text-cyan text-[42px]">
           {item.icon}
@@ -45,12 +45,25 @@ const Media: React.FC<MediaProps> = ({ item, title, content, inputPlaceholder, b
       </div>
       <div>
         <div className="flex border border-solid border-[#0ED4FF] w-full mx-auto mt-2 rounded-[10px] mb-3">
-          <input className="border-0 outline-none font-semibold w-full text-[12px] py-[10px] px-2 bg-transparent font-secondary text-white" placeholder={inputPlaceholder} value={username} onChange={(e) => setUsername(e.target.value)} />
-          <button className="text-center px-4 bg-[#0ED4FF] rounded-[8px]" onClick={checkBtnClickHandler}>Check</button>
+          <input
+            className="border-0 outline-none font-semibold w-full text-[12px] py-[10px] px-2 bg-transparent font-secondary text-white"
+            placeholder={inputPlaceholder}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <button className="text-center font-medium px-4 bg-[#0ED4FF] rounded-r-lg" onClick={checkBtnClickHandler}>
+            Check
+          </button>
         </div>
-        {joined ? <span>JOINED</span> : <Link to={item.link} target="_blank">
-          <button className="rounded-[12px] bg-cyan hover:bg-white py-[13px] w-full text-center bg-no-repeat bg-contain uppercase text-black text-[12px]">{buttonValue}</button>
-        </Link>}
+        {joined ? (
+          <span>JOINED</span>
+        ) : (
+          <Link to={item.link} target="_blank">
+            <button className="rounded-[12px] bg-cyan hover:bg-white py-[13px] w-full text-center bg-no-repeat bg-contain uppercase text-black text-sm font-medium">
+              {buttonValue}
+            </button>
+          </Link>
+        )}
       </div>
     </section>
   );
