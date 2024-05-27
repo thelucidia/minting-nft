@@ -24,7 +24,7 @@ const GradientButton: React.FC<GradientButtonProps> = ({ prefix = null, content 
 
   return (
     <>
-      <div className="flex flex-col gap-x-3 gap-y-10 w-full max-w-sm">
+      <div className="flex flex-col gap-x-3 gap-y-10 w-full max-w-sm z-50">
         <Link to={content == 'Mint now' ? '/pharaoh-course' : path} rel="noopener noreferrer">
           <button
             className={`${baseClass} ${addedClass}`}
