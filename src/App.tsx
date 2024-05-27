@@ -1,10 +1,7 @@
-import React, { lazy, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import ReactGA from 'react-ga';
-
-const Nav = lazy(() => import('./components/layouts/Nav'));
-const Footer = lazy(() => import('./components/layouts/Footer'));
 
 import Landing from './pages/Landing';
 import CreateId from './pages/CreateId';
@@ -19,6 +16,8 @@ import UserInfo from './components/elements/UserInfo';
 import Minting from './pages/Minting';
 import PharaohCourse from './pages/PharaohCourse';
 import LucidiaNotes from './pages/LucidiaNotes';
+import Nav from './components/layouts/Nav';
+import Footer from './components/layouts/Footer';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -46,8 +45,8 @@ const TRACKING_ID = "'G-LW9F39G459";
 ReactGA.initialize(TRACKING_ID);
 
 const App: React.FC = () => {
-  const pathname = window.location.pathname;
-  const isFooter = pathname === '/';
+  const location = useLocation();
+  const isFooter = location.pathname === '/';
 
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
