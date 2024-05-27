@@ -7,6 +7,10 @@ export default {
       'contain': 'contain',
       'cover': 'cover'
     },
+    listStyleImage: {
+      none: 'none',
+      icon: '/minting/image 61.svg',
+    },
     extend: {
       fontFamily: {
         primary: ['Clash'],
