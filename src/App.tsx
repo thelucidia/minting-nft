@@ -1,6 +1,7 @@
-import React, { lazy } from 'react';
+import React, { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import ReactGA from 'react-ga';
 
 const Nav = lazy(() => import('./components/layouts/Nav'));
 const Footer = lazy(() => import('./components/layouts/Footer'));
@@ -41,9 +42,16 @@ export const BaseRoutes = () => {
   );
 };
 
+const TRACKING_ID = "'G-LW9F39G459";
+ReactGA.initialize(TRACKING_ID);
+
 const App: React.FC = () => {
   const pathname = window.location.pathname;
   const isFooter = pathname === '/';
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   return (
     <section className="relative w-full h-full overflow-hidden bg-black mx-auto">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { MouseEventHandler, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAccount } from 'wagmi';
 
@@ -22,10 +22,19 @@ const GradientButton: React.FC<GradientButtonProps> = ({ prefix = null, content 
     }
   }, []);
 
+  const linkClickHandler = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    const current = content.toLocaleLowerCase();
+    if (current !== 'mint now' && current !== 'join now') event.preventDefault();
+  };
+
   return (
     <>
       <div className="flex flex-col gap-x-3 gap-y-10 w-full max-w-sm z-50">
-        <Link to={content == 'Mint now' ? '/pharaoh-course' : path} rel="noopener noreferrer">
+        <Link
+          to={content == 'Mint now' ? '/pharaoh-course' : path}
+          rel="noopener noreferrer"
+          onClick={(event) => linkClickHandler(event)}
+        >
           <button
             className={`${baseClass} ${addedClass}`}
             style={{ background: 'linear-gradient(90deg, #193F47 33.5%, #0ED4FF 100%', textAlign: 'center' }}
