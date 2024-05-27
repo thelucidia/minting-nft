@@ -21,8 +21,6 @@ import LucidiaNotes from './pages/LucidiaNotes';
 
 import 'react-toastify/dist/ReactToastify.css';
 
-// let web3: any;
-
 export const BaseRoutes = () => {
   return (
     <Routes>
