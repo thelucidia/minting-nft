@@ -13,11 +13,11 @@ const Airdrop: React.FC = () => {
         </h2>
       </div>
       <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4 sm:gap-8">
-        <div className="flex flex-col xl:flex-row gap-4 sm:gap-8">
+        <div className="flex flex-col xl:flex-row items-center gap-4 sm:gap-8">
           <GradientButton prefix={1} content="Connect your wallet" />
           <GradientButton prefix={2} content="Join with our community" />
         </div>
-        <div className="flex flex-col xl:flex-row gap-4 sm:gap-8">
+        <div className="flex flex-col xl:flex-row items-center gap-4 sm:gap-8">
           <GradientButton prefix={3} content="Complete assessment" />
           <GradientButton prefix={4} content="Receive your rewards" />
         </div>
