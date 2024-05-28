@@ -40,7 +40,7 @@ const Media: React.FC<MediaProps> = ({ item, title, content, inputPlaceholder, b
         </div>
         <div className="text-left w-[230px]">
           <h3>{title}</h3>
-          <h5 className="text-[12px] mt-2">{content}</h5>
+          <h5 className="text-xs mt-2">{content}</h5>
         </div>
       </div>
       <div>
@@ -56,7 +56,7 @@ const Media: React.FC<MediaProps> = ({ item, title, content, inputPlaceholder, b
           </button>
         </div>
         {joined ? (
-          <span>JOINED</span>
+          <p className="w-full text-center">JOINED</p>
         ) : (
           <Link to={item.link} target="_blank">
             <button className="rounded-[12px] bg-cyan hover:bg-white py-[13px] w-full text-center bg-no-repeat bg-contain uppercase text-black text-sm font-medium">

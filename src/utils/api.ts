@@ -4,7 +4,6 @@ export const checkMemberForTelegram = async(username: string) => {
   try {
     const response = await axiosConfig.post("/user/check-username-telegram", {username});
     const membership = response.data.membership as string;
-    console.log("response", response.data.membership);
     if (membership === 'none')
       return false;
     return true;

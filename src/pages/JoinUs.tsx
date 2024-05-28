@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { LiaTelegramPlane } from 'react-icons/lia';
 import { BsTwitterX } from 'react-icons/bs';
 import { RxDiscordLogo } from 'react-icons/rx';
-
 import Media from '../components/elements/Media';
 import { checkFollowingTwitter, checkMemberForDiscord, checkMemberForTelegram } from '../utils/api';
 
