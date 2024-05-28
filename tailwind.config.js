@@ -45,10 +45,11 @@ export default {
         teamShadow: '0px -118px 161px -87px rgba(119,0,255,1) inset',
       },
       screens: {
-        xs: '520px', // Example custom breakpoint at 400px
-        customXl: '1420px',
+        '2xs': '394px',
+        'xs': '512px',
         'xd': '840px',
         '3xl': '1792px',
+        customXl: '1420px',
       },
       backgroundImage: {
         'gradient-to-b': "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 99.82%)",

@@ -53,13 +53,14 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-full overflow-hidden bg-black mx-auto">
+    <section className="relative w-full h-full min-h-screen overflow-hidden bg-black mx-auto">
       <Nav />
       <BaseRoutes />
       {isFooter && <Footer />}
       <ToastContainer
+        toastClassName="bg-transparent"
         position="top-right"
-        autoClose={5000}
+        autoClose={3000}
         hideProgressBar={true}
         closeOnClick
         pauseOnHover

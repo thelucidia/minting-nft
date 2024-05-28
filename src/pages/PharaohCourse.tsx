@@ -44,8 +44,8 @@ const PharaohCourse: React.FC = () => {
   };
 
   return (
-    <section className="relative flex items-center justify-center w-full h-screen p-12 mt-20 bg-[url('/token/Vector.png')] bg-contain xl:bg-cover bg-no-repeat">
-      <div className="flex flex-col items-center justify-center gap-y-6 px-10 py-6 xd:p-10 bg-[url('/assets/frames/frame1_mobile.png')] xd:bg-[url('/assets/frames/frame1.png')] bg-full bg-no-repeat xd:max-w-screen-md">
+    <section className="relative flex items-center justify-center w-full p-12 bg-[url('/token/Vector.png')] bg-contain xl:bg-cover bg-no-repeat">
+      <div className="flex flex-col items-center justify-center gap-y-6 px-6 py-6 xd:p-10 mt-28 bg-[url('/assets/frames/frame1_mobile.png')] xd:bg-[url('/assets/frames/frame1.png')] bg-full bg-no-repeat xd:max-w-screen-md">
         <p className="font-primary font-semibold text-white text-center text-4xl uppercase">Course of the pharaoh</p>
         <div className="flex flex-col items-center xd:flex-row gap-8">
           <img className="w-1/2 object-contain" src="/token/Group 625215.png" alt="zombie" />
@@ -53,17 +53,19 @@ const PharaohCourse: React.FC = () => {
             <p className="font-primary font-medium text-white text-center xd:text-start text-lg uppercase">
               To Claim this assets you must connect to your wallet
             </p>
-            <div className="flex flex-col">
-              {sortedConnectors.map((connector) => (
-                <ConnectWalletButton
-                  key={connector.uid}
-                  connected={connector.name === connectedConnector?.name}
-                  connector={connector}
-                  click={() => connect({ connector })}
-                />
-              ))}
-            </div>
-            <Avatar name="Sofia Turner" wallet={address ? trimAddress(address) : 'Connect Wallet'} status={true} />
+            {!address && (
+              <div className="flex flex-col">
+                {sortedConnectors.map((connector) => (
+                  <ConnectWalletButton
+                    key={connector.uid}
+                    connected={connector.name === connectedConnector?.name}
+                    connector={connector}
+                    click={() => connect({ connector })}
+                  />
+                ))}
+              </div>
+            )}
+            <Avatar name="Username" wallet={address ? trimAddress(address) : 'Connect Wallet'} status={true} />
             <button
               disabled={isPending}
               onClick={mintBtnClickHandler}
