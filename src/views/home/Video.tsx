@@ -1,10 +1,11 @@
-import { startTransition } from 'react';
+import { useState } from 'react';
+import Spinner from '../../components/Spinner';
 
 const Video = () => {
-  const handleTrue = () => {
-    startTransition(() => {
-      setTimeout(() => {}, 1500);
-    });
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleCanPlayThrough = () => {
+    setIsLoading(true);
   };
 
   return (
@@ -17,14 +18,15 @@ const Video = () => {
           <p className="flex-1 text-primary font-semibold text-2xl md:text-4xl text-center xl:text-start">
             Flawless Play. Immersive Environment. Just Pure Gaming
           </p>
-          <div className="flex-1">
+          <div className="relative flex-1">
+            {isLoading && <Spinner className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />}
             <video
               autoPlay
               muted
               loop
-              src="/videos/curseof.mp4"
+              src="/videos/curseof.mp41"
               preload={'auto'}
-              onLoadedData={handleTrue}
+              onCanPlayThrough={handleCanPlayThrough}
               playsInline
               className="border-4 border-[#B0EB10] object-scale-down rounded-3xl bg-white/40"
             />
