@@ -24,11 +24,11 @@ const Video = () => {
               autoPlay
               muted
               loop
-              src="/videos/curseof.mp41"
+              src="/videos/curseof.mp4"
               preload={'auto'}
               onCanPlayThrough={handleCanPlayThrough}
               playsInline
-              className="w-full border-4 border-[#B0EB10] object-scale-down rounded-3xl bg-white/40"
+              className=" w-full border-4 border-[#B0EB10] object-scale-down rounded-3xl bg-white/40 max-w-screen-xd m-auto"
             />
           </div>
         </div>
