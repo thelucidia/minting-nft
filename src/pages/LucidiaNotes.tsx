@@ -35,7 +35,7 @@ const LucidiaNotes: React.FC = () => {
           </div>
         </div>
         <Link to="/">
-          <button className="px-6 py-3 w-full max-w-80 xd:min-w-80 rounded-xl font-bold font-secondary text-center bg-[#454545] hover:bg-cyan bg-no-repeat bg-contain uppercase text-black">
+          <button className="px-6 py-3 w-full max-w-80 xd:min-w-80 rounded-xl font-bold font-secondary text-center bg-cyan hover:bg-white bg-no-repeat bg-contain uppercase text-black">
             <h4 className="font-bold font-secondary">Back to homepage</h4>
           </button>
         </Link>
