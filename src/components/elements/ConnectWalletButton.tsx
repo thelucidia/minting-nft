@@ -36,12 +36,6 @@ export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
     }
   }, [connected]);
 
-  useEffect(() => {
-    if (chainId !== skaleNebulaTestnet.id) {
-      switchChain({ chainId: skaleNebulaTestnet.id });
-    }
-  }, [chainId]);
-
   return (
     ready && (
       <>
