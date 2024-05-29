@@ -14,20 +14,21 @@ interface MediaProps {
   content: string;
   inputPlaceholder: string;
   buttonValue: string;
+  errorText: string;
   check: (username: string) => Promise<boolean>;
 }
 
-const Media: React.FC<MediaProps> = ({ item, title, content, inputPlaceholder, buttonValue, check }) => {
+const Media: React.FC<MediaProps> = ({ item, title, content, inputPlaceholder, buttonValue, errorText, check }) => {
   const [joined, setJoined] = useState(false);
   const [username, setUsername] = useState('');
-  const checkBtnClickHandler = async () => {
+  const checkBtnClickHandler = async (errorText: string) => {
     if (!username) {
       toast(<LucidiaToast message="username should be required!" />);
       return;
     }
     const status = await check(username);
     if (!status) {
-      toast(<LucidiaToast message="You are not a member of our community!" />);
+      toast(<LucidiaToast message={errorText} />);
     }
     setJoined(status);
   };
@@ -51,7 +52,10 @@ const Media: React.FC<MediaProps> = ({ item, title, content, inputPlaceholder, b
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <button className="text-center font-medium px-4 bg-[#0ED4FF] rounded-r-lg" onClick={checkBtnClickHandler}>
+          <button
+            className="text-center font-medium px-4 bg-[#0ED4FF] rounded-r-lg"
+            onClick={() => checkBtnClickHandler(errorText)}
+          >
             Check
           </button>
         </div>

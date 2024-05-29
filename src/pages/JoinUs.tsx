@@ -18,6 +18,7 @@ const JoinUs: React.FC = () => {
       content: 'Please submit the proof of task 1 by entering the telegram username below',
       inputPlaceholder: 'Enter your telegram Username here',
       buttonValue: 'Join Telegram',
+      erroText: 'You are not a member of our community!',
       check: checkMemberForTelegram,
     },
     {
@@ -30,6 +31,7 @@ const JoinUs: React.FC = () => {
       content: 'After that, please enter twitter Username below',
       inputPlaceholder: 'Enter your twitter Username here',
       buttonValue: 'Follow and Submit',
+      erroText: 'Please follow our Twitter account. We will verify this before sending the airdrop.',
       check: checkFollowingTwitter,
     },
     {
@@ -42,6 +44,7 @@ const JoinUs: React.FC = () => {
       content: 'After that, please enter join Discord below',
       inputPlaceholder: 'Enter your Discord Username here',
       buttonValue: 'Join Discord',
+      erroText: 'You are not a member of our community!',
       check: checkMemberForDiscord,
     },
   ];
@@ -59,6 +62,7 @@ const JoinUs: React.FC = () => {
               content={item.content}
               inputPlaceholder={item.inputPlaceholder}
               buttonValue={item.buttonValue}
+              errorText={item.erroText}
               check={item.check}
             />
           ))}
