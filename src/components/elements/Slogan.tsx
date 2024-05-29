@@ -9,7 +9,7 @@ const Slogan: React.FC = () => {
           <div className="flex flex-col gap-y-[10px] mt-20 w-full lg:w-3/5">
             <div className="text-left">
               <h5 className="font-primary text-2xl sm:text-3xl lg:text-4xl leading-[44.28px] tracking-wide font-medium">
-                Participate On The Exclusive NFT Drop
+                Exclusive NFT Drop
               </h5>
               <img src="../hero/text2.png" alt="Herotext" className="flex object-contain" />
             </div>

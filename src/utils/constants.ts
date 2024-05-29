@@ -10,19 +10,19 @@ export const MOBILE_BREAKPOINT = 1280;
 export const NAV_MENU_ITEMS: MenuType[] = [
   {
     title: 'Games',
-    path: 'https://app.lucidia.io/',
+    path: 'https://app.lucidia.io/game',
   },
   {
     title: 'Turnaments',
-    path: 'https://app.lucidia.io/',
+    path: 'https://app.lucidia.io/tournaments',
   },
   {
     title: 'Marketplace',
-    path: 'https://app.lucidia.io/',
+    path: 'https://app.lucidia.io/marketplace',
   },
   {
     title: 'DAO',
-    path: 'https://app.lucidia.io/',
+    path: 'https://app.lucidia.io/dao',
   },
   {
     title: 'Support hub',

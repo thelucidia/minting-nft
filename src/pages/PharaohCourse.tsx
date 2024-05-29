@@ -3,17 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Connector, useAccount, useConnect, useWaitForTransactionReceipt, useWriteContract } from 'wagmi';
 import { ConnectWalletButton } from '../components/elements/ConnectWalletButton';
-import { trimAddress } from '../utils/helper';
-import NonTransferableNFTAbi from '../abis/NonTransferableNFT.json';
 import LucidiaToast from '../components/elements/LucidiaTost';
 import Avatar from '../components/Avatar';
+import { trimAddress } from '../utils/helper';
+import NonTransferableNFTAbi from '../abis/NonTransferableNFT.json';
 
 const PharaohCourse: React.FC = () => {
   const { connectors, connect } = useConnect();
   const { address, connector: connectedConnector } = useAccount();
   const navigate = useNavigate();
 
-  const { data: hash, writeContract, isPending } = useWriteContract();
+  const { data: hash, writeContract, isPending, isError, error } = useWriteContract();
   const { isSuccess } = useWaitForTransactionReceipt({ hash });
 
   const sortedConnectors = useMemo(() => {
@@ -30,6 +30,13 @@ const PharaohCourse: React.FC = () => {
       navigate('/lucidia-notes');
     }
   }, [isSuccess]);
+
+  useEffect(() => {
+    if (isError) {
+      toast(<LucidiaToast message="You already seem to mint a NFT!" />);
+      navigate('/');
+    }
+  }, [isError, error]);
 
   const mintBtnClickHandler = () => {
     try {

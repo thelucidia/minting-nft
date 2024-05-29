@@ -6,8 +6,8 @@ import Hamburger from 'hamburger-react';
 import { clsx } from 'clsx';
 import { useAccount } from 'wagmi';
 import { trimAddress } from '../../utils/helper';
-import { MOBILE_BREAKPOINT, NAV_MENU_ITEMS } from '../../utils/constants';
 import HamburgerMenu from '../HamburgerMenu';
+import { MOBILE_BREAKPOINT, NAV_MENU_ITEMS } from '../../utils/constants';
 
 const Nav: React.FC = () => {
   const { pathname } = useLocation();

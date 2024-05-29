@@ -41,7 +41,7 @@ export const BaseRoutes = () => {
   );
 };
 
-const TRACKING_ID = "'G-LW9F39G459";
+const TRACKING_ID = "'G-7VWV2P13SL";
 ReactGA.initialize(TRACKING_ID);
 
 const App: React.FC = () => {

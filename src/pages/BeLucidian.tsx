@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const BeLucidian: React.FC = () => {
   const navigate = useNavigate();
   const claimBtnClickHandler = () => {
-    navigate('/');
+    navigate('/minting');
   };
 
   return (

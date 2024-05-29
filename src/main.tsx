@@ -8,7 +8,7 @@ import './index.css';
 import { config } from './config/wagmi.ts';
 
 const queryClient = new QueryClient();
-TagManager.initialize({ gtmId: 'GTM-KBP8WQV2' });
+TagManager.initialize({ gtmId: 'GTM-WJ8RMXW' });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <BrowserRouter>
