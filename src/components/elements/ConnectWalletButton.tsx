@@ -29,6 +29,7 @@ export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
 
   useEffect(() => {
     if (connected && location.pathname !== '/pharaoh-course') {
+      console.log(chainId, skaleNebulaTestnet.id);
       if (chainId !== skaleNebulaTestnet.id) {
         switchChain({ chainId: skaleNebulaTestnet.id });
       }
