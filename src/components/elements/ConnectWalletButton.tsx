@@ -1,4 +1,4 @@
-import { Connector, useAccount, useChainId, useSwitchChain } from 'wagmi';
+import { Connector, useAccount, useSwitchChain } from 'wagmi';
 import { skaleNebulaTestnet } from 'wagmi/chains';
 import { walletSvgs } from '../../utils/constants';
 import { WalletType } from '../../utils/types';
