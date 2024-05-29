@@ -1,4 +1,4 @@
-import { Connector, useChainId, useSwitchChain } from 'wagmi';
+import { Connector, useAccount, useChainId, useSwitchChain } from 'wagmi';
 import { skaleNebulaTestnet } from 'wagmi/chains';
 import { walletSvgs } from '../../utils/constants';
 import { WalletType } from '../../utils/types';
@@ -15,7 +15,7 @@ interface ConnectWalletButtonProps {
 export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
   const { connector, connected, failed, click } = props;
   const [ready, setReady] = useState(false);
-  const chainId = useChainId();
+  const { chainId } = useAccount();
   const { switchChain } = useSwitchChain();
   const navigate = useNavigate();
   const location = useLocation();
@@ -29,6 +29,9 @@ export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
 
   useEffect(() => {
     if (connected && location.pathname !== '/pharaoh-course') {
+      if (chainId !== skaleNebulaTestnet.id) {
+        switchChain({ chainId: skaleNebulaTestnet.id });
+      }
       navigate('/verify-email');
     }
   }, [connected]);
