@@ -45,7 +45,7 @@ const Nav: React.FC = () => {
         {width < MOBILE_BREAKPOINT && <Hamburger toggled={isHamburgerOpen} toggle={setIsHamburgerOpen} color="white" />}
         {isHamburgerOpen && (
           <HamburgerMenu
-            className="absolute top-20 right-12"
+            className="absolute top-20 right-6"
             items={NAV_MENU_ITEMS}
             onItemClick={hamburgerMenuItemClickHandler}
           />
