@@ -29,7 +29,7 @@ const FinishAssessment: React.FC = () => {
 
   return (
     <section className="relative flex items-center justify-center w-full h-auto p-4 bg-[url('/token/Vector.png')] bg-contain xl:bg-cover bg-no-repeat">
-      <div className="flex flex-col items-center justify-center gap-y-6 p-6 md:p-10 mt-32 bg-[url('/assets/frames/frame1_mobile.png')] md:bg-[url('/assets/frames/frame1.png')] bg-full bg-no-repeat md:max-w-screen-sm">
+      <div className="flex flex-col items-center justify-center gap-y-6 p-6 md:p-10 mt-32 bg-[url('/assets/frames/frame1_mobile.png')] md:bg-[url('/assets/frames/frame1.png')] bg-full bg-no-repeat w-full md:max-w-screen-sm">
         <p className="font-primary font-semibold text-white text-center text-4xl uppercase">
           Last! Finish your assessment
         </p>
@@ -39,7 +39,7 @@ const FinishAssessment: React.FC = () => {
           ))}
         </div>
         <Link to="/be-lucidian">
-          <button className="rounded-[12px] bg-cyan hover:bg-white py-[13px] px-[140px] text-center bg-no-repeat bg-contain uppercase text-black">
+          <button className="rounded-[12px] bg-cyan hover:bg-white py-3 px-10 text-center bg-no-repeat bg-contain uppercase text-black w-full min-w-80">
             <h4 className="font-bold font-secondary">Confirm</h4>
           </button>
         </Link>

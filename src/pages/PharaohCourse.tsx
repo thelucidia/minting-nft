@@ -58,7 +58,7 @@ const PharaohCourse: React.FC = () => {
           <img className="w-1/2 object-contain" src="/token/Group 625215.png" alt="zombie" />
           <div className="flex flex-col gap-8">
             <p className="font-primary font-medium text-white text-center xd:text-start text-lg uppercase">
-              To Claim this assets you must connect to your wallet
+              To claim this asset, you must connect your wallet.
             </p>
             {!address && (
               <div className="flex flex-col">

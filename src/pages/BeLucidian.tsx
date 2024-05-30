@@ -14,7 +14,8 @@ const BeLucidian: React.FC = () => {
           You have your Lucidian id
         </p>
         <p className="font-second font-thrid text-white text-base text-center">
-          Your Lucidian Passport has been generated Your 20,000 Lucid Token Airdrop is here! Click to claim the Airdrop
+          Your Lucidian Passport has been generated Your 20K USDT Lucid Token Airdrop is here! Click to claim the
+          Airdrop
         </p>
         <img src="/token/Group 625215.png" width="300px" alt="zombie2" />
         <button

@@ -14,7 +14,9 @@ const Video = () => {
         <p className="text-primary text-4xl md:text-6xl font-semibold text-center">New Gaming Experience</p>
         <div className="flex items-center justify-center flex-col-reverse xl:flex-row gap-6">
           <p className="xl:flex-1 text-primary font-semibold text-2xl md:text-4xl text-center xl:text-start">
-            Epic Challenges. Unstoppable Thrills. Engaging Adventures.
+            Epic Challenges.
+            <br /> Unstoppable Thrills.
+            <br /> Engaging Adventures.
           </p>
           <div className="relative w-full xl:flex-1">
             {isLoading && <Spinner className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />}

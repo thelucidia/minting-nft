@@ -14,11 +14,11 @@ interface ConnectWalletButtonProps {
 
 export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
   const { connector, connected, failed, click } = props;
-  const [ready, setReady] = useState(false);
-  const { chainId } = useAccount();
+  const { chainId, address } = useAccount();
   const { switchChain } = useSwitchChain();
   const navigate = useNavigate();
   const location = useLocation();
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -32,9 +32,14 @@ export const ConnectWalletButton = (props: ConnectWalletButtonProps) => {
       if (chainId !== skaleNebulaTestnet.id) {
         switchChain({ chainId: skaleNebulaTestnet.id });
       }
-      navigate('/verify-email');
     }
   }, [connected]);
+
+  useEffect(() => {
+    if (address && chainId === skaleNebulaTestnet.id) {
+      navigate('/verify-email');
+    }
+  }, [address, chainId]);
 
   return (
     ready && (
